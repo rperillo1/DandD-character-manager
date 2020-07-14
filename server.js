@@ -10,6 +10,7 @@ require('./config/database');
 
 
 // const usersRoutes = require('./routes/users');
+const characterRoutes = require('./routes/characters')
 
 
 app.use(logger('dev'));
@@ -20,6 +21,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 // API routes
 // app.use('/api/users', usersRoutes);
+app.use('/api/characters', characterRoutes);
 
 
 // Catch all
