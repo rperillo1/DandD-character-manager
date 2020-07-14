@@ -9,7 +9,7 @@ require('dotenv').config();
 require('./config/database');
 
 
-// const usersRoutes = require('./routes/users');
+const usersRoutes = require('./routes/users');
 const characterRoutes = require('./routes/characters')
 
 
@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 
 // API routes
-// app.use('/api/users', usersRoutes);
+app.use('/api/users', usersRoutes);
 app.use('/api/characters', characterRoutes);
 
 
