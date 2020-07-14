@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Route, Switch, NavLink, Redirect } from 'react-router-dom';
 import CharacterSheetPage from '../CharacterSheetPage/CharacterSheetPage'
 import HomePage from '../HomePage/HomePage'
+import SignupPage from '../SignupPage/SignupPage'
+import LoginPage from '../LoginPage/LoginPage'
 import './App.css';
 
 function App() {
@@ -17,15 +19,22 @@ function App() {
             <NavLink exact to='/characters'>Character Sheets</NavLink>
           </>
           <>
-            {/* <NavLink exact to='/signup'>SIGNUP</NavLink>
+            &nbsp;&nbsp;&nbsp;
+            <NavLink exact to='/signup'>SIGNUP</NavLink>
                 &nbsp;&nbsp;&nbsp;
-              <NavLink exact to='/login'>LOGIN</NavLink>
-                &nbsp;&nbsp;&nbsp; */}
+            <NavLink exact to='/login'>LOGIN</NavLink>
+                &nbsp;&nbsp;&nbsp;
           </>
         </nav>
       </header>
       <main>
         <Switch>
+          <Route exact path='/signup' render={({ history }) =>
+            <SignupPage history={history} />
+          } />
+          <Route exact path='/login' render={({ history }) =>
+            <LoginPage history={history} />
+          } />
           <Route exact path='/' render={({ history }) =>
             <HomePage history={history} />
           } />
