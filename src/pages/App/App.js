@@ -61,7 +61,7 @@ class App extends Component {
               />
             } />
             <Route exact path='/' render={({ history }) =>
-              <HomePage history={history} />
+              <HomePage history={history} handleLogout={this.handleLogout}/>
             } />
             <Route exact path='/characters' render={({ history }) =>
               <CharacterSheetPage history={history} />
