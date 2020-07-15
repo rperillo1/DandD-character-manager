@@ -2,6 +2,7 @@ const router = require('express').Router();
 const charactersCtrl = require('../controllers/characters');
 
 router.get('/', charactersCtrl.index);
+router.post('/', charactersCtrl.create);
 
 
 // function checkAuth(req, res, next) {

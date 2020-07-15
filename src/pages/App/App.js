@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { Route, Switch, NavLink, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import CharacterSheetPage from '../CharacterSheetPage/CharacterSheetPage'
 import HomePage from '../HomePage/HomePage'
 import SignupPage from '../SignupPage/SignupPage'
 import LoginPage from '../LoginPage/LoginPage'
 import SpellsPage from '../SpellsPage/SpellsPage'
 import userService from '../../utils/userService';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Nav, Navbar, Button, Form, FormControl } from 'react-bootstrap';
 import './App.css';
 
 class App extends Component {
@@ -27,22 +29,32 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <nav>
-            <NavLink exact to='/'>D&D Character-Manager</NavLink>
             {userService.getUser() ?
               <>
-                &nbsp;&nbsp;&nbsp;
-                <NavLink exact to='/characters'>Character Sheets</NavLink>
-                &nbsp;&nbsp;&nbsp;
-                <NavLink exact to='/logout' onClick={this.handleLogout}>LOGOUT</NavLink>
+                <Navbar bg="dark" variant="dark" sticky="top">
+                  <Navbar.Brand href="/"><span class="material-icons">gavel</span>D&D Char-Manager</Navbar.Brand>
+                  <Nav className="mr-auto">
+                    <Nav.Link href="/characters">Character Sheets</Nav.Link>
+                  </Nav>
+                  <Nav className="ml-auto">
+                    <Nav.Link href="/logout" onClick={this.handleLogout}>Log Out</Nav.Link>
+                  </Nav>
+                  {/* <Form inline>
+                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                    <Button variant="outline-info">Search</Button>
+                  </Form> */}
+                </Navbar>
               </>
               :
               <>
-                &nbsp;&nbsp;&nbsp;
-                <NavLink exact to='/signup'>SIGNUP</NavLink>
-                &nbsp;&nbsp;&nbsp;
-                <NavLink exact to='/login'>LOGIN</NavLink>
-                &nbsp;&nbsp;&nbsp;
-          </>
+                <Navbar bg="dark" variant="dark" sticky="top">
+                <Navbar.Brand href="/"><span class="material-icons">gavel</span>D&D Char-Manager</Navbar.Brand>
+                  <Nav className="ml-auto">
+                    <Nav.Link href="/signup">Sign Up</Nav.Link>
+                    <Nav.Link href="/login">Log In</Nav.Link>
+                  </Nav>
+                </Navbar>
+              </>
             }
           </nav>
         </header>
@@ -61,7 +73,7 @@ class App extends Component {
               />
             } />
             <Route exact path='/' render={({ history }) =>
-              <HomePage history={history} handleLogout={this.handleLogout}/>
+              <HomePage history={history} handleLogout={this.handleLogout} />
             } />
             <Route exact path='/characters' render={({ history }) =>
               <CharacterSheetPage history={history} />
