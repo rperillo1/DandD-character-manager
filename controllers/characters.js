@@ -7,8 +7,9 @@ module.exports = {
 
 // index
 async function index(req, res) {
+    console.log('inside index controller')
     try {
-        const characters = await Character.find({ user: req.user.id }).populate('user');
+        const characters = await Character.find({ user: req.user._id }).populate('user');
         res.status(200).json(characters);
     }
     catch (err) {
@@ -18,7 +19,7 @@ async function index(req, res) {
 
 async function create(req, res) {
     console.log('in create controller')
-    req.body.user = req.user.id
+    req.body.user = req.user._id
     try {
         const character = await Character.create(req.body);
         res.status(201).json(character)

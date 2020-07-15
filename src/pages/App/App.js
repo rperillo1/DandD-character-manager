@@ -5,7 +5,9 @@ import HomePage from '../HomePage/HomePage'
 import SignupPage from '../SignupPage/SignupPage'
 import LoginPage from '../LoginPage/LoginPage'
 import SpellsPage from '../SpellsPage/SpellsPage'
+import AddCharacterSheetPage from '../AddCharacterSheetPage/AddCharacterSheetPage'
 import userService from '../../utils/userService';
+import * as characterService from '../../utils/characterService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Nav, Navbar, Button, Form, FormControl } from 'react-bootstrap';
 import './App.css';
@@ -23,6 +25,10 @@ class App extends Component {
     userService.logout();
     this.setState({ user: null });
   };
+
+  handleAddCharacter = async newCharacterData => {
+    await characterService.createCharacterAPI(newCharacterData)
+  }
 
   render() {
     return (
@@ -48,7 +54,7 @@ class App extends Component {
               :
               <>
                 <Navbar bg="dark" variant="dark" sticky="top">
-                <Navbar.Brand href="/"><span class="material-icons">gavel</span>D&D Char-Manager</Navbar.Brand>
+                  <Navbar.Brand href="/"><span class="material-icons">gavel</span>D&D Char-Manager</Navbar.Brand>
                   <Nav className="ml-auto">
                     <Nav.Link href="/signup">Sign Up</Nav.Link>
                     <Nav.Link href="/login">Log In</Nav.Link>
@@ -80,6 +86,9 @@ class App extends Component {
             } />
             <Route exact path='/spells' render={({ history }) =>
               <SpellsPage history={history} />
+            } />
+            <Route exact path='/add-character' render={({ history }) =>
+              <AddCharacterSheetPage history={history} handleAddCharacter={this.handleAddCharacter} />
             } />
           </Switch>
         </main>

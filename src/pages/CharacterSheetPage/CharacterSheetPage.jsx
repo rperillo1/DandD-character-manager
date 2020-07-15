@@ -7,13 +7,6 @@ import * as characterService from '../../utils/characterService'
 class CharacterSheet extends Component {
     state = {
         characters: [],
-        name: '',
-        class: ''
-    }
-
-    handleAddCharacter = async newCharacterData => {
-        await characterService.createCharacterAPI(newCharacterData)
-        this.getAllCharacters();
     }
 
     getAllCharacters = async () => {
@@ -23,13 +16,27 @@ class CharacterSheet extends Component {
         }, () => this.props.history.push('/characters'))
     }
 
+    async componentDidMount() {
+        this.getAllCharacters();
+        // this.setState({
+
+        // })
+    }
+
     render() {
         return (
             <div className='charPage-div'>
+                <h1>Character Sheets!</h1>
+                <Link to='/add-character' className="btn btn-primary">Add New Character</Link>
                 <div className="flex-container">
-                    <h1>Character Sheets!</h1>
+                    {this.state.characters.map(char =>
+                        <div>
+                            <p>{char.name}</p>
+                            <p>{char.class}</p>
+                        </div>
+                    )}
+
                 </div>
-                <AddCharacterSheetPage handleAddCharacter={this.handleAddCharacter}/>
             </div>
         )
     }
