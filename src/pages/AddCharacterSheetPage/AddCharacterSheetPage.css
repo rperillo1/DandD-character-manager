@@ -1,5 +1,13 @@
 .CharPage-form-group {
-    width: 17vw;
+    width: 11vw;
+    margin: 2px;
+    padding: 1.5px;
+    background-color: rgb(27, 221, 228);
+}
+
+
+.CharPage-form-group-money {
+    width: 5vw;
     margin: 2px;
     padding: 1.5px;
     background-color: rgb(27, 221, 228);

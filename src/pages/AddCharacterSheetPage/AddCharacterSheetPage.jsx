@@ -7,7 +7,16 @@ class CharacterSheetPage extends Component {
         formData: {
             name: '',
             class: '',
+            level: null,
+            race: '',
+            hitPoints: null,
+            tempHitPoints: null,
+            ac: null,
+            speed: null,
             stats: {},
+            equipment: '',
+            money: {},
+            backstory: ''
         },
         savingThrows: []
     }
@@ -19,11 +28,11 @@ class CharacterSheetPage extends Component {
                 savingThrows: [...this.state.savingThrows, e.target.value]
             })
         }
+
         if (this.state.savingThrows.includes(e.target.value)) {
-            let statIdx = this.state.savingThrows.indexOf(e.target.value)
-            let tempSavingThrows = [...this.state.savingThrows.splice(statIdx, 1)]
+            let tempSavingThrows = this.state.savingThrows.filter(stat => stat !== e.target.value)
             this.setState({
-                savingThrows: [...this.state.savingThrows, tempSavingThrows]
+                savingThrows: tempSavingThrows
             })
         }
 
@@ -38,8 +47,7 @@ class CharacterSheetPage extends Component {
 
 
     handleSubmit = e => {
-        const objectToSubmit = (this.state.formData.savingThrows = this.state.savingThrows)
-        console.log(objectToSubmit)
+        const objectToSubmit = { ...this.state.formData, savingThrows: this.state.savingThrows }
         e.preventDefault();
         this.props.handleAddCharacter(objectToSubmit);
         this.props.history.push('/characters');
@@ -49,7 +57,7 @@ class CharacterSheetPage extends Component {
         return (
             <>
                 <div className='flex-container'>
-                    <h1>Create Character Sheet</h1>
+                    <h1 className='charPage-div'>Create Character Sheet</h1>
                 </div>
                 <form onSubmit={this.handleSubmit}>
                     <div className='flex-container'>
@@ -83,7 +91,7 @@ class CharacterSheetPage extends Component {
                                 required
                             />
                         </div>
-                        {/* <div className="CharPage-form-group">
+                        <div className="CharPage-form-group">
                             <label>Race:</label>
                             <input
                                 className="form-control"
@@ -119,7 +127,7 @@ class CharacterSheetPage extends Component {
                             <label>Temp HP:</label>
                             <input
                                 className="form-control"
-                                name="hitPoints"
+                                name="tempHitPoints"
                                 value={this.state.formData.tempHitPoints}
                                 onChange={this.handleChange}
                                 required
@@ -239,35 +247,108 @@ class CharacterSheetPage extends Component {
                                 onChange={this.handleChange}
                                 required
                             />
-                        </div> */}
+                        </div>
                         <div className="CharPage-form-group">
                             <label>Saving Throws (proficient):</label>
-                            <label>Str:
+                            <div className='flex-container'>
+                                <label>Str:
                             <input type='checkbox' onChange={this.handleChange} value='strength' name='savingThrows' />
-                            </label>
-                            <label>Dex:
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Dex:
                             <input type='checkbox' onChange={this.handleChange} value='dexterity' name='savingThrows' />
-                            </label>
-                            <label>Con:
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Con:
                             <input type='checkbox' onChange={this.handleChange} value='constitution' name='savingThrows' />
-                            </label>
-                            <label>Int:
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Int:
                             <input type='checkbox' onChange={this.handleChange} value='intelligence' name='savingThrows' />
-                            </label>
-                            <label>Wis:
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Wis:
                             <input type='checkbox' onChange={this.handleChange} value='wisdom' name='savingThrows' />
-                            </label>
-                            <label>Char:
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Char:
                             <input type='checkbox' onChange={this.handleChange} value='charisma' name='savingThrows' />
+                                </label>
+                            </div>
+                        </div>
+                        <div className="CharPage-form-group">
+                            <label>Equipment: (seperate items by comma)</label>
+                            <input
+                                className="form-control"
+                                name="equipment"
+                                value={this.state.formData.equipment}
+                                onChange={this.handleChange}
+                            />
+                        </div>
+                        <div className="CharPage-form-group-money">
+                            <div className='flex-container'>
+                                <label>CP:
+                            <input
+                                        placeholder="80"
+                                        className="form-control"
+                                        name="money.CP"
+                                        value={this.state.formData.money.CP}
+                                        onChange={this.handleChange}
+                                    />
+                                </label>
+                            </div>
+                            <label>SP:
+                            <input
+                                    placeholder="80"
+                                    className="form-control"
+                                    name="money.SP"
+                                    value={this.state.formData.money.SP}
+                                    onChange={this.handleChange}
+                                />
                             </label>
-                            {/* <select multiple={true} value={['Str', 'Dex', 'Con', 'Int', 'Wis', 'Char']} onChange={this.handleChange}>
-                                <option value="Str">Strength</option>
-                                <option value="Dex">Dexterity</option>
-                                <option value="Con">Constitution</option>
-                                <option value="Int">Intelligence</option>
-                                <option value="Wis">Wisdom</option>
-                                <option value="Char">Charisma</option>
-                            </select> */}
+                            <label>EP:
+                            <input
+                                    placeholder="80"
+                                    className="form-control"
+                                    name="money.EP"
+                                    value={this.state.formData.money.EP}
+                                    onChange={this.handleChange}
+                                />
+                            </label>
+                            <label>GP:
+                            <input
+                                    placeholder="80"
+                                    className="form-control"
+                                    name="money.GP"
+                                    value={this.state.formData.money.GP}
+                                    onChange={this.handleChange}
+                                />
+                            </label>
+                            <label>PP:
+                            <input
+                                    placeholder="80"
+                                    className="form-control"
+                                    name="money.PP"
+                                    value={this.state.formData.money.PP}
+                                    onChange={this.handleChange}
+                                />
+                            </label>
+                        </div>
+                    </div>
+                    <div className='flex-container'>
+                        <div className="CharPage-form-group">
+                            <label>Backstory:</label>
+                            <input
+                                className="form-control"
+                                name="backstory"
+                                value={this.state.formData.backstory}
+                                onChange={this.handleChange}
+                            />
                         </div>
                     </div>
                     <button

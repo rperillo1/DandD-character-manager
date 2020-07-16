@@ -56,7 +56,7 @@ const characterSchema = new Schema({
         type: Array
     },
     equipment: {
-        type: Array
+        type: String
     },
     money: {
         CP: Number,
