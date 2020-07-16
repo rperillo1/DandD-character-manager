@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import CharacterSheetPage from '../CharacterSheetPage/CharacterSheetPage'
+import CharacterSheetIndexPage from '../CharacterSheetIndexPage/CharacterSheetIndexPage'
 import HomePage from '../HomePage/HomePage'
 import SignupPage from '../SignupPage/SignupPage'
 import LoginPage from '../LoginPage/LoginPage'
 import SpellsPage from '../SpellsPage/SpellsPage'
 import AddCharacterSheetPage from '../AddCharacterSheetPage/AddCharacterSheetPage'
+import CharacterSheetShowPage from '../CharacterSheetShowPage/CharacterSheetShowPage'
 import userService from '../../utils/userService';
 import * as characterService from '../../utils/characterService';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -82,7 +83,10 @@ class App extends Component {
               <HomePage history={history} handleLogout={this.handleLogout} />
             } />
             <Route exact path='/characters' render={({ history }) =>
-              <CharacterSheetPage history={history} />
+              <CharacterSheetIndexPage history={history} />
+            } />
+            <Route exact path='/characters/:id' render={({ history }) =>
+              <CharacterSheetShowPage history={history} />
             } />
             <Route exact path='/spells' render={({ history }) =>
               <SpellsPage history={history} />
