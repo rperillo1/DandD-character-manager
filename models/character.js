@@ -52,6 +52,9 @@ const characterSchema = new Schema({
         wis: Number,
         char: Number
     },
+    savingThrows: {
+        type: Array
+    },
     equipment: {
         type: Array
     },

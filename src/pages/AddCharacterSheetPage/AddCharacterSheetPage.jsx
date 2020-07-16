@@ -6,24 +6,42 @@ class CharacterSheetPage extends Component {
     state = {
         formData: {
             name: '',
-            class: ''
-        }
+            class: '',
+            stats: {},
+        },
+        savingThrows: []
     }
 
+
     handleChange = e => {
+        if (e.target.type === 'checkbox') {
+            this.setState({
+                savingThrows: [...this.state.savingThrows, e.target.value]
+            })
+        }
+        if (this.state.savingThrows.includes(e.target.value)) {
+            let statIdx = this.state.savingThrows.indexOf(e.target.value)
+            let tempSavingThrows = [...this.state.savingThrows.splice(statIdx, 1)]
+            this.setState({
+                savingThrows: [...this.state.savingThrows, tempSavingThrows]
+            })
+        }
+
         const formDataAsUserTypes = {
             ...this.state.formData,
             [e.target.name]: e.target.value
         }
-
         this.setState({
             formData: formDataAsUserTypes
         })
     }
 
+
     handleSubmit = e => {
+        const objectToSubmit = (this.state.formData.savingThrows = this.state.savingThrows)
+        console.log(objectToSubmit)
         e.preventDefault();
-        this.props.handleAddCharacter(this.state.formData);
+        this.props.handleAddCharacter(objectToSubmit);
         this.props.history.push('/characters');
     }
 
@@ -65,7 +83,7 @@ class CharacterSheetPage extends Component {
                                 required
                             />
                         </div>
-                        <div className="CharPage-form-group">
+                        {/* <div className="CharPage-form-group">
                             <label>Race:</label>
                             <input
                                 className="form-control"
@@ -168,6 +186,88 @@ class CharacterSheetPage extends Component {
                                 onChange={this.handleChange}
                                 required
                             />
+                        </div>
+                    </div>
+                    <div className='flex-container'>
+                        <div className="CharPage-form-group">
+                            <label>Stats:</label>
+                            <input
+                                placeholder="Strength"
+                                className="form-control"
+                                name="stats.str"
+                                value={this.state.formData.stats.str}
+                                onChange={this.handleChange}
+                                required
+                            />
+                            <input
+                                placeholder="Dexterity"
+                                className="form-control"
+                                name="stats.dex"
+                                value={this.state.formData.stats.dex}
+                                onChange={this.handleChange}
+                                required
+                            />
+                            <input
+                                placeholder="Constitution"
+                                className="form-control"
+                                name="stats.con"
+                                value={this.state.formData.stats.con}
+                                onChange={this.handleChange}
+                                required
+                            />
+                            <input
+                                placeholder="Intelligence"
+                                className="form-control"
+                                name="stats.int"
+                                value={this.state.formData.stats.int}
+                                onChange={this.handleChange}
+                                required
+                            />
+                            <input
+                                placeholder="Wisdom"
+                                className="form-control"
+                                name="stats.wis"
+                                value={this.state.formData.stats.wis}
+                                onChange={this.handleChange}
+                                required
+                            />
+                            <input
+                                placeholder="Charisma"
+                                className="form-control"
+                                name="stats.char"
+                                value={this.state.formData.stats.char}
+                                onChange={this.handleChange}
+                                required
+                            />
+                        </div> */}
+                        <div className="CharPage-form-group">
+                            <label>Saving Throws (proficient):</label>
+                            <label>Str:
+                            <input type='checkbox' onChange={this.handleChange} value='strength' name='savingThrows' />
+                            </label>
+                            <label>Dex:
+                            <input type='checkbox' onChange={this.handleChange} value='dexterity' name='savingThrows' />
+                            </label>
+                            <label>Con:
+                            <input type='checkbox' onChange={this.handleChange} value='constitution' name='savingThrows' />
+                            </label>
+                            <label>Int:
+                            <input type='checkbox' onChange={this.handleChange} value='intelligence' name='savingThrows' />
+                            </label>
+                            <label>Wis:
+                            <input type='checkbox' onChange={this.handleChange} value='wisdom' name='savingThrows' />
+                            </label>
+                            <label>Char:
+                            <input type='checkbox' onChange={this.handleChange} value='charisma' name='savingThrows' />
+                            </label>
+                            {/* <select multiple={true} value={['Str', 'Dex', 'Con', 'Int', 'Wis', 'Char']} onChange={this.handleChange}>
+                                <option value="Str">Strength</option>
+                                <option value="Dex">Dexterity</option>
+                                <option value="Con">Constitution</option>
+                                <option value="Int">Intelligence</option>
+                                <option value="Wis">Wisdom</option>
+                                <option value="Char">Charisma</option>
+                            </select> */}
                         </div>
                     </div>
                     <button
