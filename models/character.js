@@ -68,7 +68,10 @@ const characterSchema = new Schema({
     backstory: {
         type: String
     },
-    // spells: [{ reference to spells model}],
+    spells: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Spell'
+    }],
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'

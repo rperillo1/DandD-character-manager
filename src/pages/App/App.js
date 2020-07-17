@@ -88,7 +88,7 @@ class App extends Component {
             <Route exact path='/characters/:id' render={({ history }) =>
               <CharacterSheetShowPage history={history} />
             } />
-            <Route exact path='/spells' render={({ history }) =>
+            <Route exact path='/:id/spells' render={({ history }) =>
               <SpellsPage history={history} />
             } />
             <Route exact path='/add-character' render={({ history }) =>

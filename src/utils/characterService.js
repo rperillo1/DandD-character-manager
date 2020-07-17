@@ -9,17 +9,7 @@ export function getAllCharactersAPI() {
             'Authorization': `Bearer ${tokenService.getToken()}`
         }
     })
-    .then(allCharacters => allCharacters.json());
-}
-
-//show
-export function getSelectedCharacterAPI(characterID) {
-    return fetch(`${BASE_URL}/${characterID}`, {
-        headers: {
-            'Authorization': `Bearer ${tokenService.getToken()}`
-        }
-    })
-    .then(character => character.json());
+        .then(allCharacters => allCharacters.json());
 }
 
 
@@ -28,11 +18,24 @@ export function createCharacterAPI(characterToCreate) {
     return fetch(BASE_URL, {
         method: 'POST',
         headers: {
-          'Content-type': 'application/json',
-          'Authorization': `Bearer ${tokenService.getToken()}`
+            'Content-type': 'application/json',
+            'Authorization': `Bearer ${tokenService.getToken()}`
         },
         body: JSON.stringify(characterToCreate)
     })
-    .then(newCharacter => newCharacter.json());
+        .then(newCharacter => newCharacter.json());
 }
+
+
+export function addSpellToCharacter(spell, characterId) {
+    return fetch(`${BASE_URL}/${characterId}/spells`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json',
+            'Authorization': `Bearer ${tokenService.getToken()}`
+        },
+        body: JSON.stringify(spell)
+    }).then(updatedCharacter => updatedCharacter.json());
+}
+
 
