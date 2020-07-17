@@ -3,7 +3,6 @@ const charactersCtrl = require('../controllers/characters');
 
 router.get('/', charactersCtrl.index);
 router.post('/', charactersCtrl.create);
-// router.get('/:id', charactersCtrl.show);
 
 
 // function checkAuth(req, res, next) {

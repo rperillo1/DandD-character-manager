@@ -16,6 +16,7 @@ class CharacterSheet extends Component {
         }, () => this.props.history.push('/characters'))
     }
 
+
     async componentDidMount() {
         this.getAllCharacters();
     }
@@ -32,7 +33,7 @@ class CharacterSheet extends Component {
                                 <Card.Title>{char.name}</Card.Title>
                                 <Card.Subtitle className="mb-2 text-muted">Level: {char.level}</Card.Subtitle>
                                 <Card.Subtitle className="mb-2 text-muted"> {char.class} - {char.race}</Card.Subtitle>
-                                <Card.Link href="/characters/:id">Enter Sheet</Card.Link>
+                                <Link to={{ pathname: `characters/${char._id}`, character:{char} }}>Enter Sheet</Link>
                             </Card.Body>
                         </Card>
                     )}

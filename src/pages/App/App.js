@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import CharacterSheetIndexPage from '../CharacterSheetIndexPage/CharacterSheetIndexPage'
 import HomePage from '../HomePage/HomePage'
 import SignupPage from '../SignupPage/SignupPage'
@@ -10,7 +10,7 @@ import CharacterSheetShowPage from '../CharacterSheetShowPage/CharacterSheetShow
 import userService from '../../utils/userService';
 import * as characterService from '../../utils/characterService';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Nav, Navbar, Button, Form, FormControl } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
 import './App.css';
 
 class App extends Component {

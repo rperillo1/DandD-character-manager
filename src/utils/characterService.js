@@ -12,6 +12,16 @@ export function getAllCharactersAPI() {
     .then(allCharacters => allCharacters.json());
 }
 
+//show
+export function getSelectedCharacterAPI(characterID) {
+    return fetch(`${BASE_URL}/${characterID}`, {
+        headers: {
+            'Authorization': `Bearer ${tokenService.getToken()}`
+        }
+    })
+    .then(character => character.json());
+}
+
 
 // create
 export function createCharacterAPI(characterToCreate) {
