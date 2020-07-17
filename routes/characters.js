@@ -3,6 +3,7 @@ const charactersCtrl = require('../controllers/characters');
 
 router.get('/', charactersCtrl.index);
 router.post('/', charactersCtrl.create);
+router.put('/:id/spells', charactersCtrl.addSpell);
 
 
 // function checkAuth(req, res, next) {

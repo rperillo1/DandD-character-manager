@@ -10,14 +10,11 @@ class SpellsPage extends Component {
         spells: [],
         spell: '',
         characterId: this.props.history.location.characterId,
-        character: ''
+        character: {}
     }
 
     async componentDidMount() {
         this.getCharacter()
-        // this.setState({
-        //     character: character
-        // })
     }
 
 
@@ -43,16 +40,10 @@ class SpellsPage extends Component {
 
     handleSubmit = async e => {
         e.preventDefault();
-        // search for spell and add to the character spell array
-        // two await calls. 2nd await call will take spell from api and pass it along with character id 
-        // to a service called addSpellToCharacter
-        // create appropraite routes/controlers to find the character, push spell into character & save character
         const spellFromAPI = await spellsAPI.getSpellInfoAPI(this.state.spell);
         characterService.addSpellToCharacter(spellFromAPI, this.state.characterId)
         this.setState({ spells: [...this.state.spells, spellFromAPI] })
     }
-
-
 
 
     render() {
@@ -62,7 +53,9 @@ class SpellsPage extends Component {
                     <FormControl name="spell" type="text" placeholder="Acid Arrow" className="mr-sm-2" onChange={this.handleChange} />
                     <Button type="submit" variant="outline-info">Search</Button>
                 </Form>
-                {this.state.spells.name}
+                {this.state.character.spells ? this.state.character.spells.map(spell => 
+                    <div>{spell.name}</div>
+                ) : null }
                 <Link to='/characters/' className='btn btn-primary'>Back to Character</Link>
             </h1>
         )

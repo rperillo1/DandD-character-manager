@@ -35,7 +35,7 @@ export function addSpellToCharacter(spell, characterId) {
             'Authorization': `Bearer ${tokenService.getToken()}`
         },
         body: JSON.stringify(spell)
-    }).then(updatedCharacter => updatedCharacter.json());
+    }).then(spell => spell.json());
 }
 
 

@@ -2,7 +2,8 @@ const Character = require('../models/character');
 
 module.exports = {
     index,
-    create,
+    create: createCharacter,
+    addSpell: addSpellToCharacter
 };
 
 // index
@@ -16,7 +17,7 @@ async function index(req, res) {
     }
 }
 
-async function create(req, res) {
+async function createCharacter(req, res) {
     req.body.user = req.user._id
     try {
         const character = await Character.create(req.body);
@@ -27,12 +28,16 @@ async function create(req, res) {
     }
 } 
 
-// async function show(req, res) {
-//     try {
-//         const character = await Character.findById(req.params.id);
-//         res.status(200).json(character);
-//     }
-//     catch(err) {
-//         res.status(500).json(err);
-//     }
-// }
+async function addSpellToCharacter(req, res) {
+    try{
+        const character = await Character.findById(req.params.id);
+        character.spells.push(req.body)
+        character.save()
+        res.status(200).json(character);
+    }
+    catch(err){
+        res.status(500).json(err);
+    }
+}
+
+

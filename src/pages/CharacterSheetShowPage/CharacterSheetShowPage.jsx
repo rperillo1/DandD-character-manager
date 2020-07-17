@@ -12,7 +12,6 @@ class CharacterSheetShowPage extends Component {
         return (
             <h1>
                 {this.state.character.name}
-                {this.state.character._id}
                 <Link to={{ pathname: `/${this.state.character._id}/spells`, characterId:`${this.state.character._id}` }} className='btn btn-primary'>Spells</Link>
             </h1>
         )
