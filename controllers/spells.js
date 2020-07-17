@@ -1,4 +1,3 @@
-const Spell = require('../models/spell');
 const Character = require('../models/character');
 
 module.exports = {
