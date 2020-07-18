@@ -33,7 +33,7 @@ class CharacterSheet extends Component {
                                 <Card.Title>{char.name}</Card.Title>
                                 <Card.Subtitle className="mb-2 text-muted">Level: {char.level}</Card.Subtitle>
                                 <Card.Subtitle className="mb-2 text-muted"> {char.class} - {char.race}</Card.Subtitle>
-                                <Link to={{ pathname: `characters/${char._id}`, character:{char} }}>Enter Sheet</Link>
+                                <Link to={{ pathname: `characters/${char._id}`, state:{char}, charId:`${char._id}` }}>Enter Sheet</Link>
                             </Card.Body>
                         </Card>
                     )}

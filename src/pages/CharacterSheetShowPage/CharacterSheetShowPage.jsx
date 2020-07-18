@@ -2,20 +2,21 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 
-class CharacterSheetShowPage extends Component {
-    state = {
-        character: this.props.history.location.character.char
-    }
-
-
-    render() {
-        return (
-            <h1>
-                {this.state.character.name}
-                <Link to={{ pathname: `/${this.state.character._id}/spells`, characterId:`${this.state.character._id}` }} className='btn btn-primary'>Spells</Link>
-            </h1>
-        )
-    }
+function CharacterSheetShowPage(props) {
+    const character = props.location.state.char
+    return (
+        <h1>
+            {character.name}
+            <Link to={{ pathname: `/characters/${character._id}/spells`, characterId:`${character._id}`, state:{character} }} className='btn btn-primary'>Spells</Link>
+            <button
+                className='btn btn-danger '
+                onClick={() => props.handleDeleteCharacter(character._id)}
+            >
+                DELETE CHARACTER
+            </button>
+        </h1>
+    )
 }
+
 
 export default CharacterSheetShowPage;

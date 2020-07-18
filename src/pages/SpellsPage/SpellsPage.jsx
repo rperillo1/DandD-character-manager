@@ -9,12 +9,7 @@ class SpellsPage extends Component {
     state = {
         spells: [],
         spell: '',
-        characterId: this.props.history.location.characterId,
-        character: {}
-    }
-
-    async componentDidMount() {
-        this.getCharacter()
+        character: this.props.location.state.character,
     }
 
 
@@ -24,29 +19,26 @@ class SpellsPage extends Component {
         })
     }
 
-    getCharacter = async () => {
-        const characters = await characterService.getAllCharactersAPI();
-        let character = ''
-        characters.forEach(char => {
-            if (char._id === this.state.characterId) {
-                character = char
-            }
-        })
-        this.setState({
-            character
-        })
-    }
-
 
     handleSubmit = async e => {
         e.preventDefault();
         const spellFromAPI = await spellsAPI.getSpellInfoAPI(this.state.spell);
-        characterService.addSpellToCharacter(spellFromAPI, this.state.characterId)
+        characterService.addSpellToCharacter(spellFromAPI, this.state.character._id)
         this.setState({ spells: [...this.state.spells, spellFromAPI] })
     }
 
 
+
+    // async componentDidMount() {
+    //     const character = characterService.getSelectedCharacterAPI(this.props.location.characterId)
+    //     this.setState({
+    //         character: character
+    //     })
+    // }
+
+
     render() {
+        let char = this.state.character
         return (
             <h1>Spells!
                 <Form inline onSubmit={this.handleSubmit}>
@@ -56,7 +48,7 @@ class SpellsPage extends Component {
                 {this.state.character.spells ? this.state.character.spells.map(spell => 
                     <div>{spell.name}</div>
                 ) : null }
-                <Link to='/characters/' className='btn btn-primary'>Back to Character</Link>
+                <Link to={{ pathname:`/characters/${this.state.character._id}`, state:{char} }} className='btn btn-primary'>Back to Character</Link>
             </h1>
         )
     }

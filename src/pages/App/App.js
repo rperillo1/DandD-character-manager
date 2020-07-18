@@ -16,6 +16,7 @@ import './App.css';
 class App extends Component {
   state = {
     user: userService.getUser(),
+    characters: []
   }
 
   handleSignupOrLogin = () => {
@@ -29,6 +30,13 @@ class App extends Component {
 
   handleAddCharacter = async newCharacterData => {
     await characterService.createCharacterAPI(newCharacterData)
+  }
+
+  handleDeleteCharacter = async idOfCharacterToDelete => {
+    await characterService.deleteCharacterAPI(idOfCharacterToDelete);
+    this.setState(state => ({
+      characters: state.characters.filter(char => char._id !== idOfCharacterToDelete)
+    }), () => this.props.history.push('/characters'));
   }
 
   render() {
@@ -46,10 +54,6 @@ class App extends Component {
                   <Nav className="ml-auto">
                     <Nav.Link href="/logout" onClick={this.handleLogout}>Log Out</Nav.Link>
                   </Nav>
-                  {/* <Form inline>
-                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                    <Button variant="outline-info">Search</Button>
-                  </Form> */}
                 </Navbar>
               </>
               :
@@ -85,11 +89,11 @@ class App extends Component {
             <Route exact path='/characters' render={({ history }) =>
               <CharacterSheetIndexPage history={history} />
             } />
-            <Route exact path='/characters/:id' render={({ history }) =>
-              <CharacterSheetShowPage history={history} />
+            <Route exact path='/characters/:id' render={({ location }) =>
+              <CharacterSheetShowPage location={location} handleDeleteCharacter={this.handleDeleteCharacter} />
             } />
-            <Route exact path='/:id/spells' render={({ history }) =>
-              <SpellsPage history={history} />
+            <Route exact path='/characters/:id/spells' render={({ location }) =>
+              <SpellsPage location={location} />
             } />
             <Route exact path='/add-character' render={({ history }) =>
               <AddCharacterSheetPage history={history} handleAddCharacter={this.handleAddCharacter} />

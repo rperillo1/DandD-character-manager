@@ -39,7 +39,7 @@ class SignupForm extends Component {
   render() {
     return (
       <div>
-        <header className="header-footer">Sign Up</header>
+        <h3 className="header-footer login-text">Sign Up</h3>
         <form className="form-horizontal" onSubmit={this.handleSubmit} >
           <div className="form-group">
             <div className="col-sm-12">
@@ -63,8 +63,8 @@ class SignupForm extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-12 text-center">
-              <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
-              <Link to='/'>Cancel</Link>
+              <button className="btn btn-primary" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
+              <Link className="btn btn-warning" to='/'>Cancel</Link>
             </div>
           </div>
         </form>

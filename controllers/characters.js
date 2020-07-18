@@ -3,7 +3,9 @@ const Character = require('../models/character');
 module.exports = {
     index,
     create: createCharacter,
-    addSpell: addSpellToCharacter
+    addSpell: addSpellToCharacter,
+    delete: deleteCharacter,
+    getOne: selectedCharacter
 };
 
 // index
@@ -17,6 +19,18 @@ async function index(req, res) {
     }
 }
 
+// show
+async function selectedCharacter(req, res) {
+    try {
+        const character = await Character.findById(req.params.id);
+        res.status(200).json(character);
+    }
+    catch(err) {
+        res.status(500).json(err);
+    }
+}
+
+// create
 async function createCharacter(req, res) {
     req.body.user = req.user._id
     try {
@@ -28,6 +42,18 @@ async function createCharacter(req, res) {
     }
 } 
 
+// delete
+async function deleteCharacter(req, res) {
+    try {
+        const character = await Character.findByIdAndDelete(req.params.id);
+        res.status(200).json(character);
+    }
+    catch(err) {
+        res.status(500).json(err);
+    }
+}
+
+// grab spell from D&D api
 async function addSpellToCharacter(req, res) {
     try{
         const character = await Character.findById(req.params.id);
@@ -39,5 +65,6 @@ async function addSpellToCharacter(req, res) {
         res.status(500).json(err);
     }
 }
+
 
 
