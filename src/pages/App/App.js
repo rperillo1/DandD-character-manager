@@ -47,7 +47,7 @@ class App extends Component {
             {userService.getUser() ?
               <>
                 <Navbar bg="dark" variant="dark" sticky="top">
-                  <Navbar.Brand href="/"><span className="material-icons">gavel</span>D&D Char-Manager</Navbar.Brand>
+                  <Navbar.Brand href="/"><span className="material-icons">gavel</span><span>The Hammer</span></Navbar.Brand>
                   <Nav className="mr-auto">
                     <Nav.Link href="/characters">Character Sheets</Nav.Link>
                   </Nav>
@@ -59,7 +59,7 @@ class App extends Component {
               :
               <>
                 <Navbar bg="dark" variant="dark" sticky="top">
-                  <Navbar.Brand href="/"><span class="material-icons">gavel</span>D&D Char-Manager</Navbar.Brand>
+                  <Navbar.Brand href="/"><span class="material-icons">gavel</span>The Hammer</Navbar.Brand>
                   <Nav className="ml-auto">
                     <Nav.Link href="/signup">Sign Up</Nav.Link>
                     <Nav.Link href="/login">Log In</Nav.Link>

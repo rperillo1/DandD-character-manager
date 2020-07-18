@@ -4,4 +4,46 @@
 
 .char-card {
     color: black;
+    margin: 2px;
+    width: 190px;
+    /* min-height: 155px; */
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-body {
+    background-color: rgba(231, 170, 78, 0.79);
+    border-radius: 25px;
+    padding: 1rem;
+}
+
+div.char-card.card {
+    background-color: rgba(231, 170, 78, 0.1);
+    padding: 0;
+}
+
+div.card-body {
+    padding-bottom: 15px;
+}
+
+.btn.btn-outline-warning {
+    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.67);
+    color: rgb(141, 101, 26);
+    border-color: rgb(141, 101, 26);
+}
+
+.subtitle {
+    color: rgb(56, 49, 49);
+}
+
+#sheets-title {
+    margin-top: 5vmin;
+}
+
+.sheets-btn {
+    margin-bottom: 5vmin;
 }

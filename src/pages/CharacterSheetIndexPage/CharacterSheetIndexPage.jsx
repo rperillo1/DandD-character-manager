@@ -24,16 +24,16 @@ class CharacterSheet extends Component {
     render() {
         return (
             <div className='charPage-div'>
-                <h1>Character Sheets!</h1>
-                <Link to='/add-character' className="btn btn-primary">Add New Character</Link>
-                <div className="flex-container">
+                <h1 id='sheets-title'>Character Sheets!</h1>
+                <Link to='/add-character' className="btn btn-primary sheets-btn">Add New Character</Link>
+                <div className="flex-container card-container">
                     {this.state.characters.map((char, idx) =>
                         <Card className='char-card' key={idx}>
                             <Card.Body>
                                 <Card.Title>{char.name}</Card.Title>
-                                <Card.Subtitle className="mb-2 text-muted">Level: {char.level}</Card.Subtitle>
-                                <Card.Subtitle className="mb-2 text-muted"> {char.class} - {char.race}</Card.Subtitle>
-                                <Link to={{ pathname: `characters/${char._id}`, state:{char}, charId:`${char._id}` }}>Enter Sheet</Link>
+                                <Card.Subtitle className="mb-2 subtitle">Level: {char.level}</Card.Subtitle>
+                                <Card.Subtitle className="mb-2 subtitle"> {char.class} - {char.race}</Card.Subtitle>
+                                <Link className='btn btn-outline-warning' to={{ pathname: `characters/${char._id}`, state:{char}, charId:`${char._id}` }}>Enter Sheet</Link>
                             </Card.Body>
                         </Card>
                     )}

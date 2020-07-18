@@ -6,7 +6,6 @@ function CharacterSheetShowPage(props) {
     const character = props.location.state.char
     return (
         <h1>
-            {character.name}
             <Link to={{ pathname: `/characters/${character._id}/spells`, characterId:`${character._id}`, state:{character} }} className='btn btn-primary'>Spells</Link>
             <button
                 className='btn btn-danger '

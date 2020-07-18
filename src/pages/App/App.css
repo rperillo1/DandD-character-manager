@@ -2,3 +2,23 @@
   text-align: center;
   min-height: 100vh;
 }
+
+
+.material-icons {
+  padding-right: 10px;
+}
+
+a.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+
+span, .navbar-dark .navbar-brand{
+  color: orange;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: orange;
+}
+
