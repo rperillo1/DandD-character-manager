@@ -3,11 +3,12 @@
     text-align: center;
     height: 100vh;
     width: 100vw;
+    min-height: 675px;
     /* margin: 30px; */
     padding: 10vmin;
     display: grid;
     grid-template-columns: 1fr 2fr 2fr;
-    grid-template-rows: 1.5fr 1.5fr 1fr 3fr 2fr 2fr;
+    grid-template-rows: 1.5fr 1.5fr 3fr 5fr 2fr 2fr;
     grid-template-areas:
         "titleCard titleCard titleCard"
         "lifeCard lifeCard lifeCard"
@@ -30,6 +31,7 @@
 .stats-card {
     grid-area: statsCard;
     background-color: purple;
+
 }
 
 .saving-throws-card {
@@ -60,4 +62,10 @@
 .background-card {
     grid-area: backgroundCard;
     background-color: beige;
+}
+
+p {
+    margin-block-end: .15em;
+    margin-block-start: 5px;
+
 }
