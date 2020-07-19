@@ -3,8 +3,8 @@ import React from 'react';
 
 function SpellStatCard() {
     return (
-        <div>
-
+        <div className='spell-stat-card'>
+            spell stat card
         </div>
     )
 }

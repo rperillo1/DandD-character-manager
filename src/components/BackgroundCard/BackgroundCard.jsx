@@ -3,8 +3,8 @@ import React from 'react';
 
 function BackgroundCard() {
     return (
-        <div>
-
+        <div className='background-card'>
+            backgroundCard
         </div>
     )
 }

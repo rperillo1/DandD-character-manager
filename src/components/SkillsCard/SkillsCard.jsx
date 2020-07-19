@@ -3,8 +3,8 @@ import React from 'react';
 
 function SkillsCard() {
     return (
-        <div>
-
+        <div className='skills-card'>
+            skills card
         </div>
     )
 }

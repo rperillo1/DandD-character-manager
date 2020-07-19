@@ -3,8 +3,8 @@ import React from 'react';
 
 function EquipmentCard() {
     return (
-        <div>
-
+        <div className='equipment-card'>
+            equip card
         </div>
     )
 }

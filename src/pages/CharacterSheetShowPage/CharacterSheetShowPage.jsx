@@ -9,12 +9,13 @@ import SavingThrowsCard from '../../components/SavingThrowsCard/SavingThrowsCard
 import MoneyCard from '../../components/MoneyCard/MoneyCard'
 import EquipmentCard from '../../components/EquipmentCard/EquipmentCard'
 import BackgroundCard from '../../components/BackgroundCard/BackgroundCard'
+import './CharacterSheetShowPage.css'
 
 
 function CharacterSheetShowPage(props) {
     const character = props.location.state.char
     return (
-        <div>
+        <div className='sheet-grid'>
             <TitleCard character={character}/>
             <LifeCard character={character}/>
             <StatsCard character={character}/>

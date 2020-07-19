@@ -1,14 +1,63 @@
-#CharacterSheetShowPage {
+
+.sheet-grid {
     text-align: center;
     height: 100vh;
     width: 100vw;
-    margin: 0;
+    /* margin: 30px; */
+    padding: 10vmin;
     display: grid;
     grid-template-columns: 1fr 2fr 2fr;
-    grid-template-rows: 1fr 1fr 1fr 2fr 2fr 3fr;
-    /* grid-template-areas:  */
-    /* /* "bedOne livingroom livingroom kitchen" 
-    "fullbath livingroom livingroom kitchen" 
-    "bedTwo halfbath bedThree bedThree"; */
+    grid-template-rows: 1.5fr 1.5fr 1fr 3fr 2fr 2fr;
+    grid-template-areas:
+        "titleCard titleCard titleCard"
+        "lifeCard lifeCard lifeCard"
+        "statsCard savingThrowsCard spellStatCard"
+        "statsCard skillsCard moneyCard"
+        "equipmentCard equipmentCard equipmentCard"
+        "backgroundCard backgroundCard backgroundCard"
 } 
 
+.title-card {
+    grid-area: titleCard;
+    background-color: rgb(247, 162, 4, .5);
+}
+
+.life-card {
+    grid-area: lifeCard;
+    background-color: blue;
+}
+
+.stats-card {
+    grid-area: statsCard;
+    background-color: purple;
+}
+
+.saving-throws-card {
+    grid-area: savingThrowsCard;
+    background-color: green;
+}
+
+.skills-card {
+    grid-area: skillsCard;
+    background-color: grey;
+}
+
+.spell-stat-card {
+    grid-area: spellStatCard;
+    background-color: pink;
+}
+
+.money-card {
+    grid-area: moneyCard;
+    background-color: magenta;
+}
+
+.equipment-card {
+    grid-area: equipmentCard;
+    background-color: black;
+}
+
+.background-card {
+    grid-area: backgroundCard;
+    background-color: beige;
+}

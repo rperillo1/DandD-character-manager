@@ -2,8 +2,8 @@ import React from 'react';
 
 function StatsCard() {
     return (
-        <div>
-
+        <div className='stats-card'>
+            stats card
         </div>
     )
 }
