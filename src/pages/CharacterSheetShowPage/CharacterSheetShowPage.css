@@ -31,7 +31,6 @@
 .stats-card {
     grid-area: statsCard;
     background-color: purple;
-
 }
 
 .saving-throws-card {
@@ -64,8 +63,3 @@
     background-color: beige;
 }
 
-p {
-    margin-block-end: .15em;
-    margin-block-start: 5px;
-
-}

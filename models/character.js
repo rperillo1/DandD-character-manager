@@ -55,6 +55,9 @@ const characterSchema = new Schema({
     savingThrows: {
         type: Array
     },
+    skills: {
+        type: Array
+    },
     equipment: {
         type: String
     },

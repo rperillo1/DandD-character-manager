@@ -18,14 +18,21 @@ class CharacterSheetPage extends Component {
             money: {},
             backstory: ''
         },
-        savingThrows: []
+        savingThrows: [],
+        skills: []
     }
 
 
     handleChange = e => {
-        if (e.target.type === 'checkbox') {
+        if (e.target.type === 'checkbox' && e.target.name === 'savingThrows') {
             this.setState({
-                savingThrows: [...this.state.savingThrows, e.target.value]
+                savingThrows: [...this.state.savingThrows, e.target.value],
+            })
+        }
+
+        if (e.target.type === 'checkbox' && e.target.name === 'skills') {
+            this.setState({
+                skills: [...this.state.skills, e.target.value]
             })
         }
 
@@ -33,6 +40,13 @@ class CharacterSheetPage extends Component {
             let tempSavingThrows = this.state.savingThrows.filter(stat => stat !== e.target.value)
             this.setState({
                 savingThrows: tempSavingThrows
+            })
+        }
+
+        if (this.state.skills.includes(e.target.value)) {
+            let tempSkills = this.state.skills.filter(skill => skill !== e.target.value)
+            this.setState({
+                skills: tempSkills
             })
         }
 
@@ -46,8 +60,9 @@ class CharacterSheetPage extends Component {
     }
 
 
+
     handleSubmit = e => {
-        const objectToSubmit = { ...this.state.formData, savingThrows: this.state.savingThrows }
+        const objectToSubmit = { ...this.state.formData, savingThrows: this.state.savingThrows, skills: this.state.skills }
         e.preventDefault();
         this.props.handleAddCharacter(objectToSubmit);
         this.props.history.push('/characters');
@@ -282,6 +297,95 @@ class CharacterSheetPage extends Component {
                             </div>
                         </div>
                         <div className="CharPage-form-group">
+                            <label>Skills (proficient):</label>
+                            <div className='flex-container'>
+                                <label>Acrobatics:
+                            <input type='checkbox' onChange={this.handleChange} value='acrobatics' name='skills' />
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Animal Handling:
+                            <input type='checkbox' onChange={this.handleChange} value='animal-handling' name='skills' />
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Athletics:
+                            <input type='checkbox' onChange={this.handleChange} value='athletics' name='skills' />
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Deception:
+                            <input type='checkbox' onChange={this.handleChange} value='deception' name='skills' />
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>History:
+                            <input type='checkbox' onChange={this.handleChange} value='history' name='skills' />
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Insight:
+                            <input type='checkbox' onChange={this.handleChange} value='insight' name='skills' />
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Intimidation:
+                            <input type='checkbox' onChange={this.handleChange} value='intimidation' name='skills' />
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Investigation:
+                            <input type='checkbox' onChange={this.handleChange} value='investigation' name='skills' />
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Medicine:
+                            <input type='checkbox' onChange={this.handleChange} value='medicine' name='skills' />
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Nature:
+                            <input type='checkbox' onChange={this.handleChange} value='nature' name='skills' />
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Perception:
+                            <input type='checkbox' onChange={this.handleChange} value='perception' name='skills' />
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Performance:
+                            <input type='checkbox' onChange={this.handleChange} value='performance' name='skills' />
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Persuasion:
+                            <input type='checkbox' onChange={this.handleChange} value='persuasion' name='skills' />
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Religion:
+                            <input type='checkbox' onChange={this.handleChange} value='religion' name='skills' />
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Sleight of Hand:
+                            <input type='checkbox' onChange={this.handleChange} value='sleight-of-hand' name='skills' />
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Stealth:
+                            <input type='checkbox' onChange={this.handleChange} value='stealth' name='skills' />
+                                </label>
+                            </div>
+                            <div className='flex-container'>
+                                <label>Survival:
+                            <input type='checkbox' onChange={this.handleChange} value='survival' name='skills' />
+                                </label>
+                            </div>
+
+                        </div>
+                        <div className="CharPage-form-group">
                             <label>Equipment: (seperate items by comma)</label>
                             <input
                                 className="form-control"
@@ -363,5 +467,6 @@ class CharacterSheetPage extends Component {
         );
     }
 }
+
 
 export default CharacterSheetPage;

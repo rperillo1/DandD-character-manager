@@ -22,3 +22,6 @@ span, .navbar-dark .navbar-brand{
   color: orange;
 }
 
+p {
+  margin-bottom: 0rem;
+}
