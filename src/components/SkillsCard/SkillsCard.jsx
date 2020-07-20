@@ -39,6 +39,7 @@ function SkillsCard({character}) {
 
     return (
         <div className='skills-card'>
+            Skills:
             { character.skills.includes('acrobatics') ? <p>Acrobatics: {modifierObj[character.stats.dex] > 0 ? '+' : ''}{modifierObj[character.stats.dex] + character.profBonus}</p> : ''}
             { character.skills.includes('animal-handling') ? <p>Animal Handling: {modifierObj[character.stats.wis] > 0 ? '+' : ''}{modifierObj[character.stats.wis] + character.profBonus}</p> : ''}
             { character.skills.includes('arcana') ? <p>Arcana: {modifierObj[character.stats.int] > 0 ? '+' : ''}{modifierObj[character.stats.int] + character.profBonus}</p> : ''}
@@ -47,7 +48,7 @@ function SkillsCard({character}) {
             { character.skills.includes('history') ? <p>History: {modifierObj[character.stats.int] > 0 ? '+' : ''}{modifierObj[character.stats.int] + character.profBonus}</p> : ''}
             { character.skills.includes('insight') ? <p>Insight: {modifierObj[character.stats.wis] > 0 ? '+' : ''}{modifierObj[character.stats.wis] + character.profBonus}</p> : ''}
             { character.skills.includes('intimidation') ? <p>Intimidation: {modifierObj[character.stats.char] > 0 ? '+' : ''}{modifierObj[character.stats.char] + character.profBonus}</p> : ''}
-            { character.skills.includes('investigation') ? <p>Investingation: {modifierObj[character.stats.int] > 0 ? '+' : ''}{modifierObj[character.stats.int] + character.profBonus}</p> : ''}
+            { character.skills.includes('investigation') ? <p>Investigation: {modifierObj[character.stats.int] > 0 ? '+' : ''}{modifierObj[character.stats.int] + character.profBonus}</p> : ''}
             { character.skills.includes('medicine') ? <p>Medicine: {modifierObj[character.stats.wis] > 0 ? '+' : ''}{modifierObj[character.stats.wis] + character.profBonus}</p> : ''}
             { character.skills.includes('nature') ? <p>Nature: {modifierObj[character.stats.int] > 0 ? '+' : ''}{modifierObj[character.stats.int] + character.profBonus}</p> : ''}
             { character.skills.includes('perception') ? <p>Perception: {modifierObj[character.stats.wis] > 0 ? '+' : ''}{modifierObj[character.stats.wis] + character.profBonus}</p> : ''}

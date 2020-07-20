@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-function EquipmentCard() {
+function EquipmentCard({character}) {
     return (
         <div className='equipment-card'>
-            equip card
+            <p>{character.equipment}</p>
         </div>
     )
 }

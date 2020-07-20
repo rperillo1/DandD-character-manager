@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-function BackgroundCard() {
+function BackgroundCard({character}) {
     return (
         <div className='background-card'>
-            backgroundCard
+            <p>{character.backstory}</p>
         </div>
     )
 }

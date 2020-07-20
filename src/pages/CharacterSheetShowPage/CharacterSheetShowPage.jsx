@@ -17,28 +17,29 @@ function CharacterSheetShowPage(props) {
     const character = props.location.state.char
 
     return (
-        <>{character.name ? 
-        <div className='sheet-grid'>
-            <TitleCard character={character}/>
-            <LifeCard character={character}/>
-            <StatsCard character={character}/>
-            <SavingThrowsCard character={character}/>
-            <SkillsCard character={character}/>
-            <SpellStatCard character={character}/>
-            <MoneyCard character={character}/>
-            <EquipmentCard character={character}/>
-            <BackgroundCard character={character}/>
-            {/* <button onClick={props.handleShowSpells}>Spells</button> */}
-            <Link to={{ pathname: `/characters/${character._id}/spells`, characterId:`${character._id}`, state:{character} }} className='btn btn-primary'>SPELLS</Link>
-            <button
-                className='btn btn-danger '
-                onClick={() => props.handleDeleteCharacter(character._id)}
-            >
-                DELETE CHARACTER
-            </button>
-            <Link className='btn btn-warning' to={{ pathname: `${character._id}/edit`, state:{character}}}>EDIT SHEET</Link>
-        </div>
-        : null }
+        <>{character.name ?
+            <div className='sheet-grid'>
+                <TitleCard character={character} />
+                <LifeCard character={character} />
+                <StatsCard character={character} />
+                <SavingThrowsCard character={character} />
+                <SkillsCard character={character} />
+                <SpellStatCard character={character} />
+                <MoneyCard character={character} />
+                <EquipmentCard character={character} />
+                <BackgroundCard character={character} />
+            <div className='sheet-btns'>
+                <Link to={{ pathname: `/characters/${character._id}/spells`, characterId: `${character._id}`, state: { character } }} className='btn btn-primary'>SPELLS</Link>
+                <button
+                    className='btn btn-danger '
+                    onClick={() => props.handleDeleteCharacter(character._id)}
+                    >
+                    DELETE CHARACTER
+                    </button>
+                <Link className='btn btn-warning' to={{ pathname: `${character._id}/edit`, state: { character } }}>EDIT SHEET</Link>
+            </div>
+                    </div>
+            : null}
         </>
     )
 }

@@ -59,14 +59,14 @@ export function deleteCharacterAPI(characterIdToDelete) {
 }
 
 
-export function updateCharacterAPI(characterToUpdate) {
-    return fetch(`${BASE_URL}/${characterToUpdate._id}`, {
+export function updateCharacterAPI(characterToUpdate, characterId) {
+    return fetch(`${BASE_URL}/${characterId}`, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json',
             'Authorization': `Bearer ${tokenService.getToken()}`
         },
         body: JSON.stringify(characterToUpdate)
-    }).then(updatedCharacter => updatedCharacter.json())
+    }).then(updatedCharacter => updatedCharacter.json)
 }
 

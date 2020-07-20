@@ -16,7 +16,12 @@ class CharacterSheetPage extends Component {
             stats: {},
             equipment: '',
             money: {},
-            backstory: ''
+            backstory: '',
+            profBonus: '',
+            alignment: '',
+            spellCastingAbility: '',
+            spellSaveDC: '',
+            spellAtkBonus: ''
         },
         savingThrows: [],
         skills: []

@@ -4,9 +4,27 @@ import '../AddCharacterSheetPage/AddCharacterSheetPage.css';
 
 class EditCharacterSheetPage extends Component {
     state = {
-        formData: this.props.location.state.character,
-        savingThrows: [],
-        skills: []
+        formData: {
+            name: this.props.location.state.character.name,
+            class: this.props.location.state.character.class,
+            level: this.props.location.state.character.level,
+            race: this.props.location.state.character.race,
+            hitPoints: this.props.location.state.character.hitPoints,
+            tempHitPoints: this.props.location.state.character.tempHitPoints,
+            ac: this.props.location.state.character.ac,
+            speed: this.props.location.state.character.speed,
+            stats: this.props.location.state.character.stats,
+            equipment: this.props.location.state.character.equipment,
+            money: this.props.location.state.character.money,
+            backstory: this.props.location.state.character.backstory,
+            alignment: this.props.location.state.character.alignment,
+            profBonus: this.props.location.state.character.profBonus,
+            spellCastingAbility: this.props.location.state.character.spellCastingAbility,
+            spellSaveDC: this.props.location.state.character.spellSaveDC,
+            spellAtkBonus: this.props.location.state.character.spellAtkBonus,
+        },
+        savingThrows: [...this.props.location.state.character.savingThrows],
+        skills: [...this.props.location.state.character.skills]
     }
 
 
@@ -51,7 +69,8 @@ class EditCharacterSheetPage extends Component {
     handleSubmit = e => {
         const objectToSubmit = { ...this.state.formData, savingThrows: this.state.savingThrows, skills: this.state.skills }
         e.preventDefault();
-        this.props.handleEditCharacter(objectToSubmit);
+        console.log(objectToSubmit, this.state.skills)
+        this.props.handleEditCharacter(objectToSubmit, this.props.location.state.character._id);
         this.props.history.push(`/characters/`);
     }
 
@@ -254,32 +273,44 @@ class EditCharacterSheetPage extends Component {
                             <label>Saving Throws (proficient):</label>
                             <div className='flex-container'>
                                 <label>Str:
-                            <input type='checkbox' onChange={this.handleChange} value='strength' name='savingThrows' />
+                            <input type='checkbox' onChange={this.handleChange} value='strength' name='savingThrows' 
+                            checked={ this.state.savingThrows.includes('strength') ? 'checked' : '' }
+                            />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Dex:
-                            <input type='checkbox' onChange={this.handleChange} value='dexterity' name='savingThrows' />
+                            <input type='checkbox' onChange={this.handleChange} value='dexterity' name='savingThrows' 
+                            checked={ this.state.savingThrows.includes('dexterity') ? 'checked' : '' }
+                            />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Con:
-                            <input type='checkbox' onChange={this.handleChange} value='constitution' name='savingThrows' />
+                            <input type='checkbox' onChange={this.handleChange} value='constitution' name='savingThrows' 
+                            checked={ this.state.savingThrows.includes('constitution') ? 'checked' : '' }
+                            />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Int:
-                            <input type='checkbox' onChange={this.handleChange} value='intelligence' name='savingThrows' />
+                            <input type='checkbox' onChange={this.handleChange} value='intelligence' name='savingThrows' 
+                            checked={ this.state.savingThrows.includes('intelligence') ? 'checked' : '' }
+                            />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Wis:
-                            <input type='checkbox' onChange={this.handleChange} value='wisdom' name='savingThrows' />
+                            <input type='checkbox' onChange={this.handleChange} value='wisdom' name='savingThrows' 
+                            checked={ this.state.savingThrows.includes('wisdom') ? 'checked' : '' }
+                            />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Char:
-                            <input type='checkbox' onChange={this.handleChange} value='charisma' name='savingThrows' />
+                            <input type='checkbox' onChange={this.handleChange} value='charisma' name='savingThrows' 
+                            checked={ this.state.savingThrows.includes('charisma') ? 'checked' : '' }
+                            />
                                 </label>
                             </div>
                         </div>
@@ -288,119 +319,119 @@ class EditCharacterSheetPage extends Component {
                             <div className='flex-container'>
                                 <label>Acrobatics:
                             <input type='checkbox' onChange={this.handleChange} value='acrobatics' name='skills' 
-                            checked={ this.state.formData.skills.includes('acrobatics') ? 'checked' : '' }
+                            checked={ this.state.skills.includes('acrobatics') ? 'checked' : '' }
                             />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Animal Handling:
                             <input type='checkbox' onChange={this.handleChange} value='animal-handling' name='skills' 
-                            checked={ this.state.formData.skills.includes('animal-handling') ? 'checked' : '' }
+                            checked={ this.state.skills.includes('animal-handling') ? 'checked' : '' }
                             />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Athletics:
                             <input type='checkbox' onChange={this.handleChange} value='athletics' name='skills' 
-                            checked={ this.state.formData.skills.includes('athletics') ? 'checked' : '' }
+                            checked={ this.state.skills.includes('athletics') ? 'checked' : '' }
                             />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Deception:
                             <input type='checkbox' onChange={this.handleChange} value='deception' name='skills' 
-                            checked={ this.state.formData.skills.includes('deception') ? 'checked' : '' }
+                            checked={ this.state.skills.includes('deception') ? 'checked' : '' }
                             />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>History:
                             <input type='checkbox' onChange={this.handleChange} value='history' name='skills' 
-                            checked={ this.state.formData.skills.includes('history') ? 'checked' : '' }
+                            checked={ this.state.skills.includes('history') ? 'checked' : '' }
                             />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Insight:
                             <input type='checkbox' onChange={this.handleChange} value='insight' name='skills' 
-                            checked={ this.state.formData.skills.includes('insight') ? 'checked' : '' }
+                            checked={ this.state.skills.includes('insight') ? 'checked' : '' }
                             />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Intimidation:
                             <input type='checkbox' onChange={this.handleChange} value='intimidation' name='skills' 
-                            checked={ this.state.formData.skills.includes('intimidation') ? 'checked' : '' }
+                            checked={ this.state.skills.includes('intimidation') ? 'checked' : '' }
                             />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Investigation:
                             <input type='checkbox' onChange={this.handleChange} value='investigation' name='skills' 
-                            checked={ this.state.formData.skills.includes('investigation') ? 'checked' : '' }
+                            checked={ this.state.skills.includes('investigation') ? 'checked' : '' }
                             />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Medicine:
                             <input type='checkbox' onChange={this.handleChange} value='medicine' name='skills' 
-                            checked={ this.state.formData.skills.includes('medicine') ? 'checked' : '' }
+                            checked={ this.state.skills.includes('medicine') ? 'checked' : '' }
                             />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Nature:
                             <input type='checkbox' onChange={this.handleChange} value='nature' name='skills' 
-                            checked={ this.state.formData.skills.includes('nature') ? 'checked' : '' }
+                            checked={ this.state.skills.includes('nature') ? 'checked' : '' }
                             />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Perception:
                             <input type='checkbox' onChange={this.handleChange} value='perception' name='skills' 
-                            checked={ this.state.formData.skills.includes('perception') ? 'checked' : '' }
+                            checked={ this.state.skills.includes('perception') ? 'checked' : '' }
                             />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Performance:
                             <input type='checkbox' onChange={this.handleChange} value='performance' name='skills' 
-                            checked={ this.state.formData.skills.includes('performance') ? 'checked' : '' }
+                            checked={ this.state.skills.includes('performance') ? 'checked' : '' }
                             />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Persuasion:
                             <input type='checkbox' onChange={this.handleChange} value='persuasion' name='skills' 
-                            checked={ this.state.formData.skills.includes('persuasion') ? 'checked' : '' }
+                            checked={ this.state.skills.includes('persuasion') ? 'checked' : '' }
                             />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Religion:
                             <input type='checkbox' onChange={this.handleChange} value='religion' name='skills' 
-                            checked={ this.state.formData.skills.includes('religion') ? 'checked' : '' }
+                            checked={ this.state.skills.includes('religion') ? 'checked' : '' }
                             />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Sleight of Hand:
                             <input type='checkbox' onChange={this.handleChange} value='sleight-of-hand' name='skills' 
-                            checked={ this.state.formData.skills.includes('sleight-of-hand') ? 'checked' : '' }
+                            checked={ this.state.skills.includes('sleight-of-hand') ? 'checked' : '' }
                             />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Stealth:
                             <input type='checkbox' onChange={this.handleChange} value='stealth' name='skills' 
-                            checked={ this.state.formData.skills.includes('stealth') ? 'checked' : '' }
+                            checked={ this.state.skills.includes('stealth') ? 'checked' : '' }
                             />
                                 </label>
                             </div>
                             <div className='flex-container'>
                                 <label>Survival:
                             <input type='checkbox' onChange={this.handleChange} value='survival' name='skills' 
-                            checked={ this.state.formData.skills.includes('survival') ? 'checked' : '' }
+                            checked={ this.state.skills.includes('survival') ? 'checked' : '' }
                             />
                                 </label>
                             </div>

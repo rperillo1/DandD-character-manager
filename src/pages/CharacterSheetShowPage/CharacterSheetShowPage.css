@@ -11,7 +11,7 @@
     padding: 10vmin;
     display: grid;
     grid-template-columns: 1fr 2fr 2fr;
-    grid-template-rows: 1.5fr 1.5fr 3fr 5fr 2fr 2fr;
+    grid-template-rows: 1.5fr 1.5fr 3fr 5fr 2fr 2fr auto;
     grid-template-areas:
         "titleCard titleCard titleCard"
         "lifeCard lifeCard lifeCard"
@@ -19,6 +19,7 @@
         "statsCard skillsCard moneyCard"
         "equipmentCard equipmentCard equipmentCard"
         "backgroundCard backgroundCard backgroundCard"
+        "sheetButtons sheetButtons sheetButtons"
 } 
 
 .title-card {
@@ -79,3 +80,11 @@
     border-bottom-right-radius: 25px;
 }
 
+.sheet-btns {
+    grid-area: sheetButtons;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

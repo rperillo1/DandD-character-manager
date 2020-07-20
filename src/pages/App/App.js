@@ -61,8 +61,8 @@ class App extends Component {
     // })
   }
 
-  handleEditCharacter = async idOfCharacterToUpdate => {
-    await characterService.updateCharacterAPI(idOfCharacterToUpdate);
+  handleEditCharacter = async (characterToUpdate, characterId) => {
+    await characterService.updateCharacterAPI(characterToUpdate, characterId);
 
   }
 
