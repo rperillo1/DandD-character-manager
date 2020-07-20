@@ -8,7 +8,7 @@ function HomePage(props) {
     return (
         <div className='flex-container'>
             <div className='main-div'>
-                <h1>D&D Character Manager</h1>
+                <h1 className='home-title'>D&D Character Manager</h1>
                 {userService.getUser() ?
                     <>
                         {userService.getUser().name ? `WELCOME, ${userService.getUser().name.toUpperCase()}` : ''}

@@ -13,13 +13,13 @@ export function getAllCharactersAPI() {
 }
 
 // show
-export function getSelectedCharacterAPI(characterId) {
-    return fetch(`${BASE_URL}/${characterId}`, {
-        headers: {
-            'Authorization': `Bearer ${tokenService.getToken()}`
-        }
-    }).then(selectedCharacter => selectedCharacter.json());
-}
+// export function getSelectedCharacterAPI(characterId) {
+//     return fetch(`${BASE_URL}/${characterId}`, {
+//         headers: {
+//             'Authorization': `Bearer ${tokenService.getToken()}`
+//         }
+//     }).then(selectedCharacter => selectedCharacter.json());
+// }
 
 
 // create
@@ -58,4 +58,15 @@ export function deleteCharacterAPI(characterIdToDelete) {
     }).then(deletedCharacter => deletedCharacter.json());
 }
 
+
+export function updateCharacterAPI(characterToUpdate) {
+    return fetch(`${BASE_URL}/${characterToUpdate._id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-type': 'application/json',
+            'Authorization': `Bearer ${tokenService.getToken()}`
+        },
+        body: JSON.stringify(characterToUpdate)
+    }).then(updatedCharacter => updatedCharacter.json())
+}
 

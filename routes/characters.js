@@ -2,10 +2,11 @@ const router = require('express').Router();
 const charactersCtrl = require('../controllers/characters');
 
 router.get('/', charactersCtrl.index);
-router.get('/:id', charactersCtrl.getOne);
+// router.get('/:id', charactersCtrl.getOne);
 
 router.post('/', charactersCtrl.create);
 router.put('/:id/spells', charactersCtrl.addSpell);
+router.put('/:id', charactersCtrl.update);
 router.delete('/:id', charactersCtrl.delete);
 
 

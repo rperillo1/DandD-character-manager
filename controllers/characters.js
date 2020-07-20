@@ -5,7 +5,7 @@ module.exports = {
     create: createCharacter,
     addSpell: addSpellToCharacter,
     delete: deleteCharacter,
-    getOne: selectedCharacter
+    update: updateCharacter
 };
 
 // index
@@ -20,15 +20,15 @@ async function index(req, res) {
 }
 
 // show
-async function selectedCharacter(req, res) {
-    try {
-        const character = await Character.findById(req.params.id);
-        res.status(200).json(character);
-    }
-    catch(err) {
-        res.status(500).json(err);
-    }
-}
+// async function selectedCharacter(req, res) {
+//     try {
+//         const character = await Character.findById(req.params.id);
+//         res.status(200).json(character);
+//     }
+//     catch(err) {
+//         res.status(500).json(err);
+//     }
+// }
 
 // create
 async function createCharacter(req, res) {
@@ -67,4 +67,13 @@ async function addSpellToCharacter(req, res) {
 }
 
 
-
+// update character 
+async function updateCharacter(req, res) {
+    try {
+        const updatedCharacter = await Character.findByIdAndUpdate(req.params.id, req.body, {new: true});
+        res.status(200).json(updatedCharacter);
+    }
+    catch(err) {
+        res.status(500).json(err);
+    }
+}

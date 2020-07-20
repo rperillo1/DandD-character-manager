@@ -1,10 +1,13 @@
+/* div.sheet-grid {
+    height: 100vh;
+    width: 100%;
+} */
 
 .sheet-grid {
     text-align: center;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     min-height: 675px;
-    /* margin: 30px; */
     padding: 10vmin;
     display: grid;
     grid-template-columns: 1fr 2fr 2fr;

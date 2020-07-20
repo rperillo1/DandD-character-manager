@@ -1,0 +1,40 @@
+.spell-card {
+    color: black;
+    margin: 5px;
+    max-width: 300px;
+}
+
+.spell-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-body {
+    background-color: rgba(231, 170, 78, 0.79);
+    border-radius: 25px;
+    padding: 1rem;
+}
+
+div.spell-card.card {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+#spell-desc {
+    font-size: 10px;
+}
+
+div.mb-3.subtitle.card-items.card-subtitle.h6 {
+    font-size: 12px;
+}
+
+#spell-header {
+    font-size: 30px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-family: 'Press Start 2P', cursive;
+}

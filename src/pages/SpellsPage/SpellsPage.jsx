@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as spellsAPI from '../../utils/d&d-api';
 import * as characterService from '../../utils/characterService'
-import { Button, Form, FormControl } from 'react-bootstrap';
+import { Button, Form, FormControl, Card } from 'react-bootstrap';
+import './SpellsPage.css'
+
 
 
 class SpellsPage extends Component {
@@ -12,9 +14,6 @@ class SpellsPage extends Component {
         character: this.props.location.state.character,
     }
 
-    refreshPage = () => {
-        window.location.reload(false);
-      }
 
     handleChange = e => {
         this.setState({
@@ -26,42 +25,54 @@ class SpellsPage extends Component {
     handleSubmit = async e => {
         e.preventDefault();
         const spellFromAPI = await spellsAPI.getSpellInfoAPI(this.state.spell);
-        characterService.addSpellToCharacter(spellFromAPI, this.state.character._id)
+        this.props.handleAddSpellToCharacter(spellFromAPI, this.state.character._id)
         this.setState({ spells: [...this.state.spells, spellFromAPI] })
-        this.refreshPage()
     }
-
-    // this.setState(state => ({
-    //     puppies: state.puppies.filter(puppy => puppy._id !== idOfPuppyToDelete)
-    //   }), () => this.props.history.push('/'));
-    // }
-
-
-
-    // async componentDidMount() {
-    //     const character = characterService.getSelectedCharacterAPI(this.props.location.characterId)
-    //     this.setState({
-    //         character: character
-    //     })
-    // }
 
 
     render() {
         let char = this.state.character
         return (
-            <h1>Spells!
-                <Form inline onSubmit={this.handleSubmit}>
-                    <FormControl name="spell" type="text" placeholder="Acid Arrow" className="mr-sm-2" onChange={this.handleChange} />
-                    <Button type="submit" variant="outline-info">Search</Button>
-                </Form>
-                {this.state.character.spells ? this.state.character.spells.map(spell => 
-                    <div>{spell.name}</div>
-                ) : null }
-                {/* {this.state.spells ? this.state.spells.map(spell => 
-                    <div>{spell.name}</div>
-                ) : null } */}
-                <Link to={{ pathname:`/characters/${this.state.character._id}`, state:{char} }} className='btn btn-primary'>Back to Character</Link>
-            </h1>
+            <div><span id='spell-header'>Spells!</span>
+                <div className='flex-container'>
+                    <Form inline onSubmit={this.handleSubmit}>
+                        <FormControl name="spell" type="text" placeholder="Acid Arrow" className="mr-sm-2" onChange={this.handleChange} />
+                        <br />
+                        <Button type="submit" variant="outline-info">Search</Button>
+                    </Form>
+                </div>
+                <div className='flex-container spell-container'>
+                    {this.state.character.spells ? this.state.character.spells.map((spell, idx) =>
+                        <Card className='spell-card' key={idx}>
+                            <Card.Body>
+                                <Card.Title>{spell.name}</Card.Title>
+                                <Card.Subtitle className="mb-3 subtitle card-items">Casting Time: {spell.casting_time}</Card.Subtitle>
+                                <Card.Subtitle className="mb-3 subtitle card-items">Range: {spell.range}</Card.Subtitle>
+                                <Card.Subtitle className="mb-3 subtitle card-items">Duration: {spell.duration}</Card.Subtitle>
+                                <Card.Subtitle className="mb-3 subtitle card-items">Components: {spell.components}</Card.Subtitle>
+                                {spell.desc.map(text =>
+                                    <Card.Subtitle className="mb-3 subtitle spell-desc" id="spell-desc">{text}</Card.Subtitle>
+                                )}
+                            </Card.Body>
+                        </Card>
+                    ) : null}
+                {this.state.spells ? this.state.spells.map(spell =>
+                    <Card className='spell-card' >
+                        <Card.Body>
+                            <Card.Title>{spell.name}</Card.Title>
+                            <Card.Subtitle className="mb-3 subtitle card-items">Casting Time: {spell.casting_time}</Card.Subtitle>
+                            <Card.Subtitle className="mb-3 subtitle card-items">Range: {spell.range}</Card.Subtitle>
+                            <Card.Subtitle className="mb-3 subtitle card-items">Duration: {spell.duration}</Card.Subtitle>
+                            <Card.Subtitle className="mb-3 subtitle card-items">Components: {spell.components}</Card.Subtitle>
+                            {spell.desc.map(text =>
+                                <Card.Subtitle className="mb-3 subtitle spell-desc" id="spell-desc">{text}</Card.Subtitle>
+                                )}
+                        </Card.Body>
+                    </Card>
+                ) : null}
+                </div>
+                <Link to={{ pathname: `/characters/${this.state.character._id}`, state: { char } }} className='btn btn-primary'>Back to Character</Link>
+            </div>
         )
     }
 }
