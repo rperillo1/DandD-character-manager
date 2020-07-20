@@ -6,6 +6,7 @@ import SignupPage from '../SignupPage/SignupPage'
 import LoginPage from '../LoginPage/LoginPage'
 import SpellsPage from '../SpellsPage/SpellsPage'
 import AddCharacterSheetPage from '../AddCharacterSheetPage/AddCharacterSheetPage'
+import EditCharacterSheetPage from '../EditCharacterSheetPage/EditCharacterSheetPage'
 import CharacterSheetShowPage from '../CharacterSheetShowPage/CharacterSheetShowPage'
 import userService from '../../utils/userService';
 import * as characterService from '../../utils/characterService';
@@ -117,13 +118,16 @@ class App extends Component {
               <CharacterSheetIndexPage history={history} />
             } />
             <Route exact path='/characters/:id' render={({ location }) =>
-              <CharacterSheetShowPage location={location} handleDeleteCharacter={this.handleDeleteCharacter} handleEditCharacter={this.handleEditCharacter}/>
+              <CharacterSheetShowPage location={location} handleDeleteCharacter={this.handleDeleteCharacter} />
             } />
             <Route exact path='/characters/:id/spells' render={({ location }) =>
               <SpellsPage location={location} handleAddSpellToCharacter={this.handleAddSpellToCharacter} />
             } />
             <Route exact path='/add-character' render={({ history }) =>
               <AddCharacterSheetPage history={history} handleAddCharacter={this.handleAddCharacter} />
+            } />
+            <Route exact path='/characters/:id/edit' render={({ location, history}) =>
+              <EditCharacterSheetPage location={location} history={history} handleEditCharacter={this.handleEditCharacter}/>
             } />
           </Switch>
         </main>

@@ -36,12 +36,7 @@ function CharacterSheetShowPage(props) {
             >
                 DELETE CHARACTER
             </button>
-            <button
-                className='btn btn-warning '
-                onClick={() => props.handleEditCharacter(character._id)}
-            >
-                EDIT SHEET
-            </button>
+            <Link className='btn btn-warning' to={{ pathname: `${character._id}/edit`, state:{character}}}>EDIT SHEET</Link>
         </div>
         : null }
         </>
