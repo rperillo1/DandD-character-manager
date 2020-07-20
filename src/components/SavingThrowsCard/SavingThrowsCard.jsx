@@ -41,12 +41,12 @@ function SavingThrowsCard({ character }) {
     return (
         <div className="saving-throws-card">
             Saving Throws:
-            <p>Strength:{character.savingThrows.includes('strength') ? <span>{modifierObj[character.stats.str] + character.profBonus}</span> : <span>{modifierObj[character.stats.str]}</span> }</p>
-            <p>Dexterity:{character.savingThrows.includes('dexterity') ? <span>{modifierObj[character.stats.dex] + character.profBonus}</span> : <span>{modifierObj[character.stats.dex]}</span> }</p>
-            <p>Constitution:{character.savingThrows.includes('constitution') ? <span>{modifierObj[character.stats.con] + character.profBonus}</span> : <span>{modifierObj[character.stats.con]}</span> }</p>
-            <p>Intelligence:{character.savingThrows.includes('intelligence') ? <span>{modifierObj[character.stats.int] + character.profBonus}</span> : <span>{modifierObj[character.stats.int]}</span>}</p>
-            <p>Wisdom:{character.savingThrows.includes('wisdom') ? <span>{modifierObj[character.stats.wis] + character.profBonus}</span> : <span>{modifierObj[character.stats.wis]}</span>}</p>
-            <p>Charisma:{character.savingThrows.includes('charisma') ? <span>{modifierObj[character.stats.char] + character.profBonus}</span> : <span>{modifierObj[character.stats.char]}</span> }</p>
+            <p>Strength:{character.savingThrows.includes('strength') ? <span>{modifierObj[character.stats.str] > 0 ? '+' : ''}{modifierObj[character.stats.str] + character.profBonus}</span> : <span>{modifierObj[character.stats.str]}</span> }</p>
+            <p>Dexterity:{character.savingThrows.includes('dexterity') ? <span>{modifierObj[character.stats.dex] > 0 ? '+' : ''}{modifierObj[character.stats.dex] + character.profBonus}</span> : <span>{modifierObj[character.stats.dex]}</span> }</p>
+            <p>Constitution:{character.savingThrows.includes('constitution') ? <span>{modifierObj[character.stats.con] > 0 ? '+' : ''}{modifierObj[character.stats.con] + character.profBonus}</span> : <span>{modifierObj[character.stats.con]}</span> }</p>
+            <p>Intelligence:{character.savingThrows.includes('intelligence') ? <span>{modifierObj[character.stats.int] > 0 ? '+' : ''}{modifierObj[character.stats.int] + character.profBonus}</span> : <span>{modifierObj[character.stats.int]}</span>}</p>
+            <p>Wisdom:{character.savingThrows.includes('wisdom') ? <span>{modifierObj[character.stats.wis] > 0 ? '+' : ''}{modifierObj[character.stats.wis] + character.profBonus}</span> : <span>{modifierObj[character.stats.wis]}</span>}</p>
+            <p>Charisma:{character.savingThrows.includes('charisma') ? <span>{modifierObj[character.stats.char] > 0 ? '+' : ''}{modifierObj[character.stats.char] + character.profBonus}</span> : <span>{modifierObj[character.stats.char]}</span> }</p>
         </div>
     )
 }

@@ -21,7 +21,8 @@
 }
 
 div.char-card.card {
-    background-color: rgba(231, 170, 78, 0.1);
+    border: none;
+    background-color: transparent;
     padding: 0;
 }
 

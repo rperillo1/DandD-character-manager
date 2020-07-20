@@ -12,6 +12,9 @@ class SpellsPage extends Component {
         character: this.props.location.state.character,
     }
 
+    refreshPage = () => {
+        window.location.reload(false);
+      }
 
     handleChange = e => {
         this.setState({
@@ -25,7 +28,13 @@ class SpellsPage extends Component {
         const spellFromAPI = await spellsAPI.getSpellInfoAPI(this.state.spell);
         characterService.addSpellToCharacter(spellFromAPI, this.state.character._id)
         this.setState({ spells: [...this.state.spells, spellFromAPI] })
+        this.refreshPage()
     }
+
+    // this.setState(state => ({
+    //     puppies: state.puppies.filter(puppy => puppy._id !== idOfPuppyToDelete)
+    //   }), () => this.props.history.push('/'));
+    // }
 
 
 
@@ -48,6 +57,9 @@ class SpellsPage extends Component {
                 {this.state.character.spells ? this.state.character.spells.map(spell => 
                     <div>{spell.name}</div>
                 ) : null }
+                {/* {this.state.spells ? this.state.spells.map(spell => 
+                    <div>{spell.name}</div>
+                ) : null } */}
                 <Link to={{ pathname:`/characters/${this.state.character._id}`, state:{char} }} className='btn btn-primary'>Back to Character</Link>
             </h1>
         )

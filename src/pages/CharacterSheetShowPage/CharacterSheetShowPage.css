@@ -20,46 +20,59 @@
 
 .title-card {
     grid-area: titleCard;
-    background-color: rgb(247, 162, 4, .5);
+    background-color: rgb(247, 162, 4, .75);
+    border: 1px solid black;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 }
 
 .life-card {
     grid-area: lifeCard;
-    background-color: blue;
+    background-color: rgb(247, 162, 4, .75);
+    border: 1px solid black;
 }
 
 .stats-card {
     grid-area: statsCard;
-    background-color: purple;
+    background-color: rgb(247, 162, 4, .75);
+    border: 1px solid black;
 }
 
 .saving-throws-card {
     grid-area: savingThrowsCard;
-    background-color: green;
+    background-color: rgb(247, 162, 4, .75);
+    border: 1px solid black;
 }
 
 .skills-card {
     grid-area: skillsCard;
-    background-color: grey;
+    background-color: rgb(247, 162, 4, .75);
+    border: 1px solid black;
 }
 
 .spell-stat-card {
     grid-area: spellStatCard;
-    background-color: pink;
+    background-color: rgb(247, 162, 4, .75);
+    border: 1px solid black;
 }
 
 .money-card {
     grid-area: moneyCard;
-    background-color: magenta;
+    background-color: rgb(247, 162, 4, .75);
+    border: 1px solid black;
 }
 
 .equipment-card {
     grid-area: equipmentCard;
-    background-color: black;
+    background-color: rgb(247, 162, 4, .75);
+    border: 1px solid black;
 }
 
 .background-card {
     grid-area: backgroundCard;
-    background-color: beige;
+    background-color: rgb(247, 162, 4, .75);
+    border: 1px solid black;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
 
