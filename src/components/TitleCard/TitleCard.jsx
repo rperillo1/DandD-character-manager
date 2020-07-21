@@ -15,7 +15,7 @@ function TitleCard({ character }) {
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <p>Alignment: {character.alignment}</p>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <p>Player:{character.user.name}</p>
+                <p>Player: {character.user.name}</p>
             </div>
         </div>
     )

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import TitleCard from '../../components/TitleCard/TitleCard'
 import LifeCard from '../../components/LifeCard/LifeCard'
@@ -28,17 +28,17 @@ function CharacterSheetShowPage(props) {
                 <MoneyCard character={character} />
                 <EquipmentCard character={character} />
                 <BackgroundCard character={character} />
-            <div className='sheet-btns'>
-                <Link to={{ pathname: `/characters/${character._id}/spells`, characterId: `${character._id}`, state: { character } }} className='btn btn-primary'>SPELLS</Link>
-                <button
-                    className='btn btn-danger '
-                    onClick={() => props.handleDeleteCharacter(character._id)}
+                <div className='sheet-btns'>
+                    <Link to={{ pathname: `/characters/${character._id}/spells`, characterId: `${character._id}`, state: { character } }} className='btn btn-primary'>SPELLS</Link>
+                    <button
+                        className='btn btn-danger '
+                        onClick={() => props.handleDeleteCharacter(character._id)}
                     >
-                    DELETE CHARACTER
+                        DELETE CHARACTER
                     </button>
-                <Link className='btn btn-warning' to={{ pathname: `${character._id}/edit`, state: { character } }}>EDIT SHEET</Link>
+                    <Link className='btn btn-warning' to={{ pathname: `${character._id}/edit`, state: { character } }}>EDIT SHEET</Link>
+                </div>
             </div>
-                    </div>
             : null}
         </>
     )

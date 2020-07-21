@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import * as spellsAPI from '../../utils/d&d-api';
-import * as characterService from '../../utils/characterService'
 import { Button, Form, FormControl, Card } from 'react-bootstrap';
 import './SpellsPage.css'
 
@@ -45,6 +44,12 @@ class SpellsPage extends Component {
                     {this.state.character.spells ? this.state.character.spells.map((spell, idx) =>
                         <Card className='spell-card' key={idx}>
                             <Card.Body>
+                                <button
+                                    className='btn btn-danger delete-btn'
+                                    onClick={() => this.props.handleDeleteSpell(this.state.character._id, spell._id)}
+                                >
+                                    X
+                                </button>
                                 <Card.Title>{spell.name}</Card.Title>
                                 <Card.Subtitle className="mb-3 subtitle card-items">Casting Time: {spell.casting_time}</Card.Subtitle>
                                 <Card.Subtitle className="mb-3 subtitle card-items">Range: {spell.range}</Card.Subtitle>
@@ -56,20 +61,20 @@ class SpellsPage extends Component {
                             </Card.Body>
                         </Card>
                     ) : null}
-                {this.state.spells ? this.state.spells.map(spell =>
-                    <Card className='spell-card' >
-                        <Card.Body>
-                            <Card.Title>{spell.name}</Card.Title>
-                            <Card.Subtitle className="mb-3 subtitle card-items">Casting Time: {spell.casting_time}</Card.Subtitle>
-                            <Card.Subtitle className="mb-3 subtitle card-items">Range: {spell.range}</Card.Subtitle>
-                            <Card.Subtitle className="mb-3 subtitle card-items">Duration: {spell.duration}</Card.Subtitle>
-                            <Card.Subtitle className="mb-3 subtitle card-items">Components: {spell.components}</Card.Subtitle>
-                            {spell.desc.map(text =>
-                                <Card.Subtitle className="mb-3 subtitle spell-desc" id="spell-desc">{text}</Card.Subtitle>
+                    {this.state.spells ? this.state.spells.map((spell, idx) =>
+                        <Card className='spell-card' key={idx}>
+                            <Card.Body>
+                                <Card.Title>{spell.name}</Card.Title>
+                                <Card.Subtitle className="mb-3 subtitle card-items">Casting Time: {spell.casting_time}</Card.Subtitle>
+                                <Card.Subtitle className="mb-3 subtitle card-items">Range: {spell.range}</Card.Subtitle>
+                                <Card.Subtitle className="mb-3 subtitle card-items">Duration: {spell.duration}</Card.Subtitle>
+                                <Card.Subtitle className="mb-3 subtitle card-items">Components: {spell.components}</Card.Subtitle>
+                                {spell.desc.map(text =>
+                                    <Card.Subtitle className="mb-3 subtitle spell-desc" id="spell-desc">{text}</Card.Subtitle>
                                 )}
-                        </Card.Body>
-                    </Card>
-                ) : null}
+                            </Card.Body>
+                        </Card>
+                    ) : null}
                 </div>
                 <Link to={{ pathname: `/characters/${this.state.character._id}`, state: { char } }} className='btn btn-primary'>Back to Character</Link>
             </div>

@@ -5,7 +5,8 @@ module.exports = {
     create: createCharacter,
     addSpell: addSpellToCharacter,
     delete: deleteCharacter,
-    update: updateCharacter
+    update: updateCharacter,
+    deleteSpell
 };
 
 // index
@@ -18,17 +19,6 @@ async function index(req, res) {
         res.status(500).json(err);
     }
 }
-
-// show
-// async function selectedCharacter(req, res) {
-//     try {
-//         const character = await Character.findById(req.params.id);
-//         res.status(200).json(character);
-//     }
-//     catch(err) {
-//         res.status(500).json(err);
-//     }
-// }
 
 // create
 async function createCharacter(req, res) {
@@ -77,3 +67,17 @@ async function updateCharacter(req, res) {
         res.status(500).json(err);
     }
 }
+
+// delete a spell
+async function deleteSpell(req, res) {
+    try {
+        const character = await Character.update({_id: req.params.id}, {$pull: {spells: {_id: req.params.spellId}}})
+        res.status(200).json(character);
+    }
+    catch(err) {
+        res.status(500).json(err);
+    }
+}
+
+
+// Favorite.updateOne( {cn: req.params.name}, { $pullAll: {uid: [req.params.deleteUid] } } )

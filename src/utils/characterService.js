@@ -70,3 +70,12 @@ export function updateCharacterAPI(characterToUpdate, characterId) {
     }).then(updatedCharacter => updatedCharacter.json)
 }
 
+export function deleteSpellAPI(characterId, spellId) {
+    return fetch(`${BASE_URL}/${characterId}/spells/${spellId}`, {
+        method: 'DELETE',
+        headers: {
+            'Authorization': `Bearer ${tokenService.getToken()}`
+        }
+    }).then(deletedSpell => deletedSpell.json());
+}
+

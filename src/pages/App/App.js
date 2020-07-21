@@ -27,7 +27,7 @@ class App extends Component {
 
   handleLogout = () => {
     userService.logout();
-    this.setState({ user: null });
+    this.setState({ user: null }, () => this.props.history.push('/'));
   };
 
   handleAddCharacter = async newCharacterData => {
@@ -41,29 +41,16 @@ class App extends Component {
     }), () => this.props.history.push('/characters'));
   }
 
-  // handleSelectedCharacter = async idOfCharacter => {
-  //   console.log('id of character', idOfCharacter)
-  //   const character = await characterService.getSelectedCharacterAPI(idOfCharacter);
-  //   this.setState({
-  //     character
-  //   }, () => this.props.history.push(`/characters/${idOfCharacter}`))
-  // }
-
-  // handleShowSpells = async () => {
-  //   this.props.history.push(`/characters/${this.state.character._id}/spells`)
-  // }
-
   handleAddSpellToCharacter = async (spellFromAPI, idOfCharacter) => {
     await characterService.addSpellToCharacter(spellFromAPI, idOfCharacter)
-    // const character = await characterService.getSelectedCharacterAPI(this.state.character._id);
-    // this.setState({
-    //   character
-    // })
   }
 
   handleEditCharacter = async (characterToUpdate, characterId) => {
     await characterService.updateCharacterAPI(characterToUpdate, characterId);
+  }
 
+  handleDeleteSpell = async (characterId, spellId) => {
+    await characterService.deleteSpellAPI(characterId, spellId)
   }
 
 
@@ -80,7 +67,7 @@ class App extends Component {
                     <Nav.Link href="/characters">Character Sheets</Nav.Link>
                   </Nav>
                   <Nav className="ml-auto">
-                    <Nav.Link href="/logout" onClick={this.handleLogout}>Log Out</Nav.Link>
+                    <Nav.Link onClick={this.handleLogout}>Log Out</Nav.Link>
                   </Nav>
                 </Navbar>
               </>
@@ -121,7 +108,7 @@ class App extends Component {
               <CharacterSheetShowPage location={location} handleDeleteCharacter={this.handleDeleteCharacter} />
             } />
             <Route exact path='/characters/:id/spells' render={({ location }) =>
-              <SpellsPage location={location} handleAddSpellToCharacter={this.handleAddSpellToCharacter} />
+              <SpellsPage location={location} handleAddSpellToCharacter={this.handleAddSpellToCharacter} handleDeleteSpell={this.handleDeleteSpell}/>
             } />
             <Route exact path='/add-character' render={({ history }) =>
               <AddCharacterSheetPage history={history} handleAddCharacter={this.handleAddCharacter} />

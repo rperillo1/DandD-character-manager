@@ -38,3 +38,8 @@ div.mb-3.subtitle.card-items.card-subtitle.h6 {
     padding: 10px;
     font-family: 'Press Start 2P', cursive;
 }
+
+.delete-btn {
+    float: right;
+    margin: -20px;
+}

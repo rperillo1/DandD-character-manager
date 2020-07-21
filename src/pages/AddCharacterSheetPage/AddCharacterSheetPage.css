@@ -1,8 +1,9 @@
 .CharPage-form-group {
     width: 11vw;
     margin: 2px;
-    padding: 1.5px;
-    background-color: rgb(27, 221, 228);
+    padding: 5px;
+    background-color: rgb(247, 162, 4, .75);
+    border-radius: 10px;
 }
 
 
@@ -10,5 +11,48 @@
     width: 5vw;
     margin: 2px;
     padding: 1.5px;
-    background-color: rgb(27, 221, 228);
+    background-color: rgb(247, 162, 4, .75);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    margin: 10px;
+    border-radius: 25px;
+}
+
+.CharPage-form-group-stats {
+    width: 15vw;
+    margin: 2px;
+    padding: 5px;
+    background-color: rgb(247, 162, 4, .75);
+    border-radius: 10px;
+}
+
+.CharPage-form-group-equipment {
+    width: 15vw;
+    height: 25vh;
+    margin: 2px;
+    padding: 5px;
+    background-color: rgb(247, 162, 4, .75);
+    border-radius: 10px;
+}
+
+.CharPage-form-group-backstory {
+    width: 70vw;
+    margin: 2px;
+    padding: 5px;
+    background-color: rgb(247, 162, 4, .75);
+    border-radius: 10px;
+}
+
+.CharPage-form-group-equipment > input.form-control {
+    height: 75px;
+} 
+
+.skills-input {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
 }

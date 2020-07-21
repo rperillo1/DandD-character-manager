@@ -75,6 +75,7 @@ class EditCharacterSheetPage extends Component {
     }
 
     render() {
+        let char = this.props.location.state.character
         return (
             <>
                 <div className='flex-container'>
@@ -513,7 +514,7 @@ class EditCharacterSheetPage extends Component {
                     >
                         Update Character
                     </button>
-                    <Link to='/characters' className='btn btn-warning'>Cancel</Link>
+                    <Link to={{ pathname:`/characters/${this.props.location.state.character._id}`, state:{char}}} className='btn btn-warning'>Cancel</Link>
                 </form>
             </>
         );
