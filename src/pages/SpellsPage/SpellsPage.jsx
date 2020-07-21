@@ -28,9 +28,6 @@ class SpellsPage extends Component {
         this.setState({ spells: [...this.state.spells, spellFromAPI] })
     }
 
-    // unrenderSpell() {
-
-    // }
 
 
     render() {
@@ -71,7 +68,6 @@ class SpellsPage extends Component {
                                 <button
                                     className='btn btn-danger delete-btn'
                                     onClick={() => this.props.handleDeleteSpell(this.state.character._id, spell._id)}
-                                
                                 >
                                     X
                                 </button>

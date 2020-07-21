@@ -28,6 +28,7 @@
     border: 1px solid black;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
+    /* font-weight: bold; */
 }
 
 .life-card {
@@ -92,4 +93,8 @@
 .spell-btn {
     margin-top: 10px;
     margin-bottom: -50px;
+}
+
+p {
+    padding: 5px;
 }

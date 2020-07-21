@@ -51,6 +51,7 @@ class App extends Component {
 
   handleDeleteSpell = async (characterId, spellId) => {
     await characterService.deleteSpellAPI(characterId, spellId)
+    this.props.history.push('/characters')
   }
 
 
@@ -107,8 +108,8 @@ class App extends Component {
             <Route exact path='/characters/:id' render={({ location }) =>
               <CharacterSheetShowPage location={location} handleDeleteCharacter={this.handleDeleteCharacter} />
             } />
-            <Route exact path='/characters/:id/spells' render={({ location }) =>
-              <SpellsPage location={location} handleAddSpellToCharacter={this.handleAddSpellToCharacter} handleDeleteSpell={this.handleDeleteSpell}/>
+            <Route exact path='/characters/:id/spells' render={({ location, history }) =>
+              <SpellsPage location={location} history={history} handleAddSpellToCharacter={this.handleAddSpellToCharacter} handleDeleteSpell={this.handleDeleteSpell}/>
             } />
             <Route exact path='/add-character' render={({ history }) =>
               <AddCharacterSheetPage history={history} handleAddCharacter={this.handleAddCharacter} />
