@@ -1,5 +1,5 @@
 .CharPage-form-group {
-    width: 11vw;
+    width: 21vw;
     margin: 2px;
     padding: 5px;
     background-color: rgb(247, 162, 4, .75);
@@ -21,7 +21,7 @@
 }
 
 .CharPage-form-group-stats {
-    width: 15vw;
+    width: 25vw;
     margin: 2px;
     padding: 5px;
     background-color: rgb(247, 162, 4, .75);
@@ -29,7 +29,7 @@
 }
 
 .CharPage-form-group-equipment {
-    width: 15vw;
+    width: 30vw;
     height: 25vh;
     margin: 2px;
     padding: 5px;
@@ -54,5 +54,5 @@
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
-    padding: 10px;
+
 }

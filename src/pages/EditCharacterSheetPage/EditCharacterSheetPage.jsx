@@ -74,6 +74,8 @@ class EditCharacterSheetPage extends Component {
         this.props.history.push(`/characters/`);
     }
 
+    // checked={ this.state.skills.includes('acrobatics') ? 'checked' : '' }
+
     render() {
         let char = this.props.location.state.character
         return (
@@ -82,7 +84,7 @@ class EditCharacterSheetPage extends Component {
                     <h1 className='charPage-div'>Create Character Sheet</h1>
                 </div>
                 <form onSubmit={this.handleSubmit}>
-                    <div className='flex-container'>
+                <div className='flex-container'>
                         <div className="CharPage-form-group">
                             <label>Name:</label>
                             <input
@@ -218,8 +220,114 @@ class EditCharacterSheetPage extends Component {
                             />
                         </div>
                     </div>
+                    <div className="CharPage-form-group skills-input">
+                            <label id='skills-title'>Skills (proficient):</label>
+                            <div className=''>
+                                <label>Acrobatics:&nbsp;
+                            <input type='checkbox' onChange={this.handleChange} value='acrobatics' name='skills' 
+                            checked={ this.state.skills.includes('acrobatics') ? 'checked' : '' }
+                            />
+                                </label>
+                                &nbsp;&nbsp;&nbsp;
+                                <label>Animal Handling:&nbsp;
+                            <input type='checkbox' onChange={this.handleChange} value='animal-handling' name='skills' 
+                            checked={ this.state.skills.includes('animal-handling') ? 'checked' : '' }
+                            />
+                                </label>
+                                &nbsp;&nbsp;&nbsp;
+                                <label>Athletics:&nbsp;
+                            <input type='checkbox' onChange={this.handleChange} value='athletics' name='skills' 
+                            checked={ this.state.skills.includes('athletics') ? 'checked' : '' }
+                            />
+                                </label>
+                                &nbsp;&nbsp;&nbsp;                   
+                                <label>Deception:&nbsp;
+                            <input type='checkbox' onChange={this.handleChange} value='deception' name='skills' 
+                            checked={ this.state.skills.includes('deception') ? 'checked' : '' }
+                            />
+                                </label>
+                                &nbsp;&nbsp;&nbsp;                   
+                                <label>History:&nbsp;
+                            <input type='checkbox' onChange={this.handleChange} value='history' name='skills' 
+                            checked={ this.state.skills.includes('history') ? 'checked' : '' }
+                            />
+                                </label>
+                                &nbsp;&nbsp;&nbsp;                     
+                                <label>Insight:&nbsp;
+                            <input type='checkbox' onChange={this.handleChange} value='insight' name='skills' 
+                            checked={ this.state.skills.includes('insight') ? 'checked' : '' }
+                            />
+                                </label>
+                                &nbsp;&nbsp;&nbsp;                    
+                                <label>Intimidation:&nbsp;
+                            <input type='checkbox' onChange={this.handleChange} value='intimidation' name='skills' 
+                            checked={ this.state.skills.includes('intimidation') ? 'checked' : '' }
+                            />
+                                </label>
+                                &nbsp;&nbsp;&nbsp;                    
+                                <label>Investigation:&nbsp;
+                            <input type='checkbox' onChange={this.handleChange} value='investigation' name='skills' 
+                            checked={ this.state.skills.includes('investigation') ? 'checked' : '' }
+                            />
+                                </label>
+                                &nbsp;&nbsp;&nbsp;                   
+                                <label>Medicine:&nbsp;
+                            <input type='checkbox' onChange={this.handleChange} value='medicine' name='skills' 
+                            checked={ this.state.skills.includes('medicine') ? 'checked' : '' }
+                            />
+                                </label>
+                                &nbsp;&nbsp;&nbsp;                   
+                                <label>Nature:&nbsp;
+                            <input type='checkbox' onChange={this.handleChange} value='nature' name='skills' 
+                            checked={ this.state.skills.includes('nature') ? 'checked' : '' }
+                            />
+                                </label>
+                                &nbsp;&nbsp;&nbsp;                  
+                                <label>Perception:&nbsp;
+                            <input type='checkbox' onChange={this.handleChange} value='perception' name='skills' 
+                            checked={ this.state.skills.includes('perception') ? 'checked' : '' }
+                            />
+                                </label>
+                                &nbsp;&nbsp;&nbsp;                   
+                                <label>Performance:&nbsp;
+                            <input type='checkbox' onChange={this.handleChange} value='performance' name='skills' 
+                            checked={ this.state.skills.includes('performance') ? 'checked' : '' }
+                            />
+                                </label>
+                                &nbsp;&nbsp;&nbsp;                 
+                                <label>Persuasion:&nbsp;
+                            <input type='checkbox' onChange={this.handleChange} value='persuasion' name='skills' 
+                            checked={ this.state.skills.includes('persuasion') ? 'checked' : '' }
+                            />
+                                </label>
+                                &nbsp;&nbsp;&nbsp;                   
+                                <label>Religion:&nbsp;
+                            <input type='checkbox' onChange={this.handleChange} value='religion' name='skills' 
+                            checked={ this.state.skills.includes('religion') ? 'checked' : '' }
+                            />
+                                </label>
+                                &nbsp;&nbsp;&nbsp;                     
+                                <label>Sleight of Hand:&nbsp;
+                            <input type='checkbox' onChange={this.handleChange} value='sleight-of-hand' name='skills' 
+                            checked={ this.state.skills.includes('sleight-of-hand') ? 'checked' : '' }
+                            />
+                                </label>
+                                &nbsp;&nbsp;&nbsp;                      
+                                <label>Stealth:&nbsp;
+                            <input type='checkbox' onChange={this.handleChange} value='stealth' name='skills' 
+                            checked={ this.state.skills.includes('stealth') ? 'checked' : '' }
+                            />
+                                </label>
+                                &nbsp;&nbsp;&nbsp;                     
+                                <label>Survival:&nbsp;
+                            <input type='checkbox' onChange={this.handleChange} value='survival' name='skills' 
+                            checked={ this.state.skills.includes('survival') ? 'checked' : '' }
+                            />
+                                </label>
+                            </div>
+                        </div>
                     <div className='flex-container'>
-                        <div className="CharPage-form-group">
+                        <div className="CharPage-form-group-stats">
                             <label>Stats:</label>
                             <input
                                 placeholder="Strength"
@@ -270,7 +378,7 @@ class EditCharacterSheetPage extends Component {
                                 required
                             />
                         </div>
-                        <div className="CharPage-form-group">
+                        <div className="CharPage-form-group-stats">
                             <label>Saving Throws (proficient):</label>
                             <div className='flex-container'>
                                 <label>Str:
@@ -315,140 +423,19 @@ class EditCharacterSheetPage extends Component {
                                 </label>
                             </div>
                         </div>
-                        <div className="CharPage-form-group">
-                            <label>Skills (proficient):</label>
-                            <div className='flex-container'>
-                                <label>Acrobatics:
-                            <input type='checkbox' onChange={this.handleChange} value='acrobatics' name='skills' 
-                            checked={ this.state.skills.includes('acrobatics') ? 'checked' : '' }
-                            />
-                                </label>
-                            </div>
-                            <div className='flex-container'>
-                                <label>Animal Handling:
-                            <input type='checkbox' onChange={this.handleChange} value='animal-handling' name='skills' 
-                            checked={ this.state.skills.includes('animal-handling') ? 'checked' : '' }
-                            />
-                                </label>
-                            </div>
-                            <div className='flex-container'>
-                                <label>Athletics:
-                            <input type='checkbox' onChange={this.handleChange} value='athletics' name='skills' 
-                            checked={ this.state.skills.includes('athletics') ? 'checked' : '' }
-                            />
-                                </label>
-                            </div>
-                            <div className='flex-container'>
-                                <label>Deception:
-                            <input type='checkbox' onChange={this.handleChange} value='deception' name='skills' 
-                            checked={ this.state.skills.includes('deception') ? 'checked' : '' }
-                            />
-                                </label>
-                            </div>
-                            <div className='flex-container'>
-                                <label>History:
-                            <input type='checkbox' onChange={this.handleChange} value='history' name='skills' 
-                            checked={ this.state.skills.includes('history') ? 'checked' : '' }
-                            />
-                                </label>
-                            </div>
-                            <div className='flex-container'>
-                                <label>Insight:
-                            <input type='checkbox' onChange={this.handleChange} value='insight' name='skills' 
-                            checked={ this.state.skills.includes('insight') ? 'checked' : '' }
-                            />
-                                </label>
-                            </div>
-                            <div className='flex-container'>
-                                <label>Intimidation:
-                            <input type='checkbox' onChange={this.handleChange} value='intimidation' name='skills' 
-                            checked={ this.state.skills.includes('intimidation') ? 'checked' : '' }
-                            />
-                                </label>
-                            </div>
-                            <div className='flex-container'>
-                                <label>Investigation:
-                            <input type='checkbox' onChange={this.handleChange} value='investigation' name='skills' 
-                            checked={ this.state.skills.includes('investigation') ? 'checked' : '' }
-                            />
-                                </label>
-                            </div>
-                            <div className='flex-container'>
-                                <label>Medicine:
-                            <input type='checkbox' onChange={this.handleChange} value='medicine' name='skills' 
-                            checked={ this.state.skills.includes('medicine') ? 'checked' : '' }
-                            />
-                                </label>
-                            </div>
-                            <div className='flex-container'>
-                                <label>Nature:
-                            <input type='checkbox' onChange={this.handleChange} value='nature' name='skills' 
-                            checked={ this.state.skills.includes('nature') ? 'checked' : '' }
-                            />
-                                </label>
-                            </div>
-                            <div className='flex-container'>
-                                <label>Perception:
-                            <input type='checkbox' onChange={this.handleChange} value='perception' name='skills' 
-                            checked={ this.state.skills.includes('perception') ? 'checked' : '' }
-                            />
-                                </label>
-                            </div>
-                            <div className='flex-container'>
-                                <label>Performance:
-                            <input type='checkbox' onChange={this.handleChange} value='performance' name='skills' 
-                            checked={ this.state.skills.includes('performance') ? 'checked' : '' }
-                            />
-                                </label>
-                            </div>
-                            <div className='flex-container'>
-                                <label>Persuasion:
-                            <input type='checkbox' onChange={this.handleChange} value='persuasion' name='skills' 
-                            checked={ this.state.skills.includes('persuasion') ? 'checked' : '' }
-                            />
-                                </label>
-                            </div>
-                            <div className='flex-container'>
-                                <label>Religion:
-                            <input type='checkbox' onChange={this.handleChange} value='religion' name='skills' 
-                            checked={ this.state.skills.includes('religion') ? 'checked' : '' }
-                            />
-                                </label>
-                            </div>
-                            <div className='flex-container'>
-                                <label>Sleight of Hand:
-                            <input type='checkbox' onChange={this.handleChange} value='sleight-of-hand' name='skills' 
-                            checked={ this.state.skills.includes('sleight-of-hand') ? 'checked' : '' }
-                            />
-                                </label>
-                            </div>
-                            <div className='flex-container'>
-                                <label>Stealth:
-                            <input type='checkbox' onChange={this.handleChange} value='stealth' name='skills' 
-                            checked={ this.state.skills.includes('stealth') ? 'checked' : '' }
-                            />
-                                </label>
-                            </div>
-                            <div className='flex-container'>
-                                <label>Survival:
-                            <input type='checkbox' onChange={this.handleChange} value='survival' name='skills' 
-                            checked={ this.state.skills.includes('survival') ? 'checked' : '' }
-                            />
-                                </label>
-                            </div>
-
-                        </div>
-                        <div className="CharPage-form-group">
-                            <label>Equipment: (seperate items by comma)</label>
-                            <input
+                    
+                        <div className="CharPage-form-group-equipment">
+                            <label>Equipment:</label>
+                            <textarea
                                 className="form-control"
                                 name="equipment"
                                 value={this.state.formData.equipment}
                                 onChange={this.handleChange}
                             />
                         </div>
-                        <div className="CharPage-form-group-money">
-                            <div className='flex-container'>
+                    </div>
+                    <div className="CharPage-form-group-money">
+                            <div className=''>
                                 <label>CP:
                             <input
                                         placeholder="80"
@@ -496,11 +483,10 @@ class EditCharacterSheetPage extends Component {
                                 />
                             </label>
                         </div>
-                    </div>
                     <div className='flex-container'>
-                        <div className="CharPage-form-group">
+                        <div className="CharPage-form-group-backstory">
                             <label>Backstory:</label>
-                            <input
+                            <textarea
                                 className="form-control"
                                 name="backstory"
                                 value={this.state.formData.backstory}
