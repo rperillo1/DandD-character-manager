@@ -5,11 +5,11 @@ function MoneyCard({character}) {
     return (
         <div className='money-card'>
             Money:
-            <p>CP: {character.money.CP}</p>
-            <p>SP: {character.money.SP}</p>
-            <p>EP: {character.money.EP}</p>
-            <p>GP: {character.money.GP}</p>
-            <p>PP: {character.money.PP}</p>
+            <p>CP: <span className="stat">{character.money.CP}</span></p>
+            <p>SP: <span className="stat">{character.money.SP}</span></p>
+            <p>EP: <span className="stat">{character.money.EP}</span></p>
+            <p>GP: <span className="stat">{character.money.GP}</span></p>
+            <p>PP: <span className="stat">{character.money.PP}</span></p>
         </div>
     )
 }

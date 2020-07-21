@@ -39,17 +39,17 @@ function StatsCard({ character }) {
     return (
         <div className='stats-card'>
             <p>Strength:</p>
-            <p>{character.stats.str}({modifierObj[character.stats.str] > 0 ? '+' : ''}{modifierObj[character.stats.str]})</p>
+            <p><span className="stat">{character.stats.str} ({modifierObj[character.stats.str] > 0 ? '+' : ''}{modifierObj[character.stats.str]})</span></p>
             <p>Dexterity:</p>
-            <p>{character.stats.dex}({modifierObj[character.stats.dex] > 0 ? '+' : ''}{modifierObj[character.stats.dex]})</p>
+            <p><span className="stat">{character.stats.dex} ({modifierObj[character.stats.dex] > 0 ? '+' : ''}{modifierObj[character.stats.dex]})</span></p>
             <p>Constitution:</p>
-            <p>{character.stats.con}({modifierObj[character.stats.con] > 0 ? '+' : ''}{modifierObj[character.stats.con]})</p>
+            <p><span className="stat">{character.stats.con} ({modifierObj[character.stats.con] > 0 ? '+' : ''}{modifierObj[character.stats.con]})</span></p>
             <p>Intelligence:</p>
-            <p>{character.stats.int}({modifierObj[character.stats.int] > 0 ? '+' : ''}{modifierObj[character.stats.int]})</p>
+            <p><span className="stat">{character.stats.int} ({modifierObj[character.stats.int] > 0 ? '+' : ''}{modifierObj[character.stats.int]})</span></p>
             <p>Wisdom:</p>
-            <p>{character.stats.wis}({modifierObj[character.stats.wis] > 0 ? '+' : ''}{modifierObj[character.stats.wis]})</p>
+            <p><span className="stat">{character.stats.wis} ({modifierObj[character.stats.wis] > 0 ? '+' : ''}{modifierObj[character.stats.wis]})</span></p>
             <p>Charisma:</p>
-            <p>{character.stats.char}({modifierObj[character.stats.char] > 0 ? '+' : ''}{modifierObj[character.stats.char]})</p>
+            <p><span className="stat">{character.stats.char} ({modifierObj[character.stats.char] > 0 ? '+' : ''}{modifierObj[character.stats.char]})</span></p>
         </div>
     )
 }

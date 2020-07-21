@@ -37,6 +37,12 @@ div.card-body {
     border-color: rgb(141, 101, 26);
 }
 
+.btn.btn-outline-warning:hover {
+    color: black;
+    background-color: rgb(209, 198, 49);
+    border-color: rgb(141, 101, 26);
+}
+
 .subtitle {
     color: rgb(56, 49, 49);
 }

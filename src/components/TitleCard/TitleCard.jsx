@@ -4,18 +4,18 @@ function TitleCard({ character }) {
     return (
         <div className='title-card'>
             <div className='flex-container'>
-                <p>Name: {character.name}</p>
+                <p>Name: <span className='player-text'>{character.name}</span></p>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <p>Race: {character.race}</p>
+                <p>Race: <span className='player-text-2'>{character.race}</span></p>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <p>Class: {character.class}</p>
+                <p>Class: <span className='player-text-2'>{character.class}</span></p>
             </div>
             <div className='flex-container'>
-                <p>Level: {character.level}</p>
+                <p>Level: <span className='player-text-2'>{character.level}</span></p>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <p>Alignment: {character.alignment}</p>
+                <p>Alignment: <span className='player-text-2'>{character.alignment}</span></p>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <p>Player: {character.user.name}</p>
+                <p>Player: <span className='player-text-2'>{character.user.name}</span></p>
             </div>
         </div>
     )

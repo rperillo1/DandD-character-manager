@@ -5,18 +5,18 @@ function LifeCard({ character }) {
     return (
         <div className='life-card'>
             <div className='flex-container'>
-                <p>HP: {character.hitPoints}</p>
+                <p>HP: <span className="stat">{character.hitPoints}</span></p>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <p>Temp HP: {character.tempHitPoints}</p>
+                <p>Temp HP: <span className="stat">{character.tempHitPoints}</span></p>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <p>Max HP:</p>
+                <p>Max HP: <span className="stat">{character.hitPoints + character.tempHitPoints}</span></p>
             </div>
             <div className='flex-container'>
-                <p>Speed: {character.speed}</p>
+                <p>Speed: <span className="stat">{character.speed}</span></p>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <p>AC: {character.ac}</p>
+                <p>AC: <span className="stat">{character.ac}</span></p>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <p>Prof. Bonus: {character.profBonus}</p>
+                <p>Prof. Bonus: <span className="stat">{character.profBonus}</span></p>
             </div>
         </div>
     )

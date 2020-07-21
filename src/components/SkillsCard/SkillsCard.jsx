@@ -40,24 +40,24 @@ function SkillsCard({character}) {
     return (
         <div className='skills-card'>
             Skills:
-            { character.skills.includes('acrobatics') ? <p>Acrobatics: {modifierObj[character.stats.dex] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.dex] + character.profBonus}</p> : ''}
-            { character.skills.includes('animal-handling') ? <p>Animal Handling: {modifierObj[character.stats.wis] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.wis] + character.profBonus}</p> : ''}
-            { character.skills.includes('arcana') ? <p>Arcana: {modifierObj[character.stats.int] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.int] + character.profBonus}</p> : ''}
-            { character.skills.includes('athletics') ? <p>Athletics: {modifierObj[character.stats.str] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.str] + character.profBonus}</p> : ''}
-            { character.skills.includes('deception') ? <p>Deception: {modifierObj[character.stats.char] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.char] + character.profBonus}</p> : ''}
-            { character.skills.includes('history') ? <p>History: {modifierObj[character.stats.int] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.int] + character.profBonus}</p> : ''}
-            { character.skills.includes('insight') ? <p>Insight: {modifierObj[character.stats.wis] > 0 ? '+' : ''}{modifierObj[character.stats.wis] + character.profBonus}</p> : ''}
-            { character.skills.includes('intimidation') ? <p>Intimidation: {modifierObj[character.stats.wis] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.char] + character.profBonus}</p> : ''}
-            { character.skills.includes('investigation') ? <p>Investigation: {modifierObj[character.stats.int] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.int] + character.profBonus}</p> : ''}
-            { character.skills.includes('medicine') ? <p>Medicine: {modifierObj[character.stats.wis] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.wis] + character.profBonus}</p> : ''}
-            { character.skills.includes('nature') ? <p>Nature: {modifierObj[character.stats.int] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.int] + character.profBonus}</p> : ''}
-            { character.skills.includes('perception') ? <p>Perception: {modifierObj[character.stats.wis] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.wis] + character.profBonus}</p> : ''}
-            { character.skills.includes('performance') ? <p>Performance: {modifierObj[character.stats.char] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.char] + character.profBonus}</p> : ''}
-            { character.skills.includes('persuasion') ? <p>Persuasion: {modifierObj[character.stats.char] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.char] + character.profBonus}</p> : ''}
-            { character.skills.includes('religion') ? <p>Religion: {modifierObj[character.stats.int] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.int] + character.profBonus}</p> : ''}
-            { character.skills.includes('sleight-of-hand') ? <p>Sleight of Hand: {modifierObj[character.stats.dex] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.dex] + character.profBonus}</p> : ''}
-            { character.skills.includes('stealth') ? <p>Stealth: {modifierObj[character.stats.dex] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.dex] + character.profBonus}</p> : ''}
-            { character.skills.includes('survival') ? <p>Survival: {modifierObj[character.stats.wis] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.wis] + character.profBonus}</p> : ''}
+            { character.skills.includes('acrobatics') ? <p>Acrobatics: <span className="stat">{modifierObj[character.stats.dex] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.dex] + character.profBonus}</span></p> : ''}
+            { character.skills.includes('animal-handling') ? <p>Animal Handling: <span className="stat">{modifierObj[character.stats.wis] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.wis] + character.profBonus}</span></p> : ''}
+            { character.skills.includes('arcana') ? <p>Arcana: <span className="stat">{modifierObj[character.stats.int] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.int] + character.profBonus}</span></p> : ''}
+            { character.skills.includes('athletics') ? <p>Athletics: <span className="stat">{modifierObj[character.stats.str] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.str] + character.profBonus}</span></p> : ''}
+            { character.skills.includes('deception') ? <p>Deception: <span className="stat">{modifierObj[character.stats.char] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.char] + character.profBonus}</span></p> : ''}
+            { character.skills.includes('history') ? <p>History: <span className="stat">{modifierObj[character.stats.int] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.int] + character.profBonus}</span></p> : ''}
+            { character.skills.includes('insight') ? <p>Insight: <span className="stat">{modifierObj[character.stats.wis] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.wis] + character.profBonus}</span></p> : ''}
+            { character.skills.includes('intimidation') ? <p>Intimidation: <span className="stat">{modifierObj[character.stats.wis] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.char] + character.profBonus}</span></p> : ''}
+            { character.skills.includes('investigation') ? <p>Investigation: <span className="stat">{modifierObj[character.stats.int] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.int] + character.profBonus}</span></p> : ''}
+            { character.skills.includes('medicine') ? <p>Medicine: <span className="stat">{modifierObj[character.stats.wis] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.wis] + character.profBonus}</span></p> : ''}
+            { character.skills.includes('nature') ? <p>Nature: <span className="stat">{modifierObj[character.stats.int] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.int] + character.profBonus}</span></p> : ''}
+            { character.skills.includes('perception') ? <p>Perception: <span className="stat">{modifierObj[character.stats.wis] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.wis] + character.profBonus}</span></p> : ''}
+            { character.skills.includes('performance') ? <p>Performance: <span className="stat">{modifierObj[character.stats.char] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.char] + character.profBonus}</span></p> : ''}
+            { character.skills.includes('persuasion') ? <p>Persuasion: <span className="stat">{modifierObj[character.stats.char] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.char] + character.profBonus}</span></p> : ''}
+            { character.skills.includes('religion') ? <p>Religion: <span className="stat">{modifierObj[character.stats.int] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.int] + character.profBonus}</span></p> : ''}
+            { character.skills.includes('sleight-of-hand') ? <p>Sleight of Hand: <span className="stat">{modifierObj[character.stats.dex] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.dex] + character.profBonus}</span></p> : ''}
+            { character.skills.includes('stealth') ? <p>Stealth: <span className="stat">{modifierObj[character.stats.dex] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.dex] + character.profBonus}</span></p> : ''}
+            { character.skills.includes('survival') ? <p>Survival: <span className="stat">{modifierObj[character.stats.wis] + character.profBonus > 0 ? '+' : ''}{modifierObj[character.stats.wis] + character.profBonus}</span></p> : ''}
         </div>
     )
 }
