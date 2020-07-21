@@ -28,6 +28,10 @@ class SpellsPage extends Component {
         this.setState({ spells: [...this.state.spells, spellFromAPI] })
     }
 
+    // unrenderSpell() {
+
+    // }
+
 
     render() {
         let char = this.state.character
@@ -36,7 +40,7 @@ class SpellsPage extends Component {
                 <div className='flex-container'>
                     <Form inline onSubmit={this.handleSubmit}>
                         <FormControl name="spell" type="text" placeholder="Acid Arrow" className="mr-sm-2" onChange={this.handleChange} />
-                        <br />
+                        <br /> &nbsp;
                         <Button type="submit" variant="outline-info">Search</Button>
                     </Form>
                 </div>
@@ -64,6 +68,13 @@ class SpellsPage extends Component {
                     {this.state.spells ? this.state.spells.map((spell, idx) =>
                         <Card className='spell-card' key={idx}>
                             <Card.Body>
+                                <button
+                                    className='btn btn-danger delete-btn'
+                                    onClick={() => this.props.handleDeleteSpell(this.state.character._id, spell._id)}
+                                
+                                >
+                                    X
+                                </button>
                                 <Card.Title>{spell.name}</Card.Title>
                                 <Card.Subtitle className="mb-3 subtitle card-items">Casting Time: {spell.casting_time}</Card.Subtitle>
                                 <Card.Subtitle className="mb-3 subtitle card-items">Range: {spell.range}</Card.Subtitle>
@@ -76,7 +87,7 @@ class SpellsPage extends Component {
                         </Card>
                     ) : null}
                 </div>
-                <Link to={{ pathname: `/characters/${this.state.character._id}`, state: { char } }} className='btn btn-primary'>Back to Character</Link>
+                <Link to={{ pathname: `/characters/${this.state.character._id}`, state: { char } }} className='btn btn-primary back-btn'>Back to Character</Link>
             </div>
         )
     }

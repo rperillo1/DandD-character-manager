@@ -43,3 +43,7 @@ div.mb-3.subtitle.card-items.card-subtitle.h6 {
     float: right;
     margin: -20px;
 }
+
+.back-btn {
+    margin-top: 20px;
+}

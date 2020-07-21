@@ -29,8 +29,8 @@
 }
 
 .CharPage-form-group-equipment {
-    width: 30vw;
-    height: 25vh;
+    width: 70vw;
+    /* height: 25vh; */
     margin: 2px;
     padding: 5px;
     background-color: rgb(247, 162, 4, .75);
@@ -45,9 +45,6 @@
     border-radius: 10px;
 }
 
-.CharPage-form-group-equipment > input.form-control {
-    height: 75px;
-} 
 
 .skills-input {
     display: flex;
@@ -55,4 +52,8 @@
     justify-content: space-between;
     width: 100%;
 
+}
+
+.buttons {
+    margin: 10px;
 }

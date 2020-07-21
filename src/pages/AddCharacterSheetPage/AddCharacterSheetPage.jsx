@@ -217,77 +217,77 @@ class CharacterSheetPage extends Component {
                         </div>
                     </div>
                     <div className="CharPage-form-group skills-input">
-                            <label id='skills-title'>Skills (proficient):</label>
-                            <div className=''>
-                                <label>Acrobatics:&nbsp;
+                        <label id='skills-title'>Skills (proficient):</label>
+                        <div className=''>
+                            <label>Acrobatics:&nbsp;
                             <input type='checkbox' onChange={this.handleChange} value='acrobatics' name='skills' />
-                                </label>
+                            </label>
                                 &nbsp;&nbsp;&nbsp;
                                 <label>Animal Handling:&nbsp;
                             <input type='checkbox' onChange={this.handleChange} value='animal-handling' name='skills' />
-                                </label>
+                            </label>
                                 &nbsp;&nbsp;&nbsp;
                                 <label>Athletics:&nbsp;
                             <input type='checkbox' onChange={this.handleChange} value='athletics' name='skills' />
-                                </label>
-                                &nbsp;&nbsp;&nbsp;                   
+                            </label>
+                                &nbsp;&nbsp;&nbsp;
                                 <label>Deception:&nbsp;
                             <input type='checkbox' onChange={this.handleChange} value='deception' name='skills' />
-                                </label>
-                                &nbsp;&nbsp;&nbsp;                   
+                            </label>
+                                &nbsp;&nbsp;&nbsp;
                                 <label>History:&nbsp;
                             <input type='checkbox' onChange={this.handleChange} value='history' name='skills' />
-                                </label>
-                                &nbsp;&nbsp;&nbsp;                     
+                            </label>
+                                &nbsp;&nbsp;&nbsp;
                                 <label>Insight:&nbsp;
                             <input type='checkbox' onChange={this.handleChange} value='insight' name='skills' />
-                                </label>
-                                &nbsp;&nbsp;&nbsp;                    
+                            </label>
+                                &nbsp;&nbsp;&nbsp;
                                 <label>Intimidation:&nbsp;
                             <input type='checkbox' onChange={this.handleChange} value='intimidation' name='skills' />
-                                </label>
-                                &nbsp;&nbsp;&nbsp;                    
+                            </label>
+                                &nbsp;&nbsp;&nbsp;
                                 <label>Investigation:&nbsp;
                             <input type='checkbox' onChange={this.handleChange} value='investigation' name='skills' />
-                                </label>
-                                &nbsp;&nbsp;&nbsp;                   
+                            </label>
+                                &nbsp;&nbsp;&nbsp;
                                 <label>Medicine:&nbsp;
                             <input type='checkbox' onChange={this.handleChange} value='medicine' name='skills' />
-                                </label>
-                                &nbsp;&nbsp;&nbsp;                   
+                            </label>
+                                &nbsp;&nbsp;&nbsp;
                                 <label>Nature:&nbsp;
                             <input type='checkbox' onChange={this.handleChange} value='nature' name='skills' />
-                                </label>
-                                &nbsp;&nbsp;&nbsp;                  
+                            </label>
+                                &nbsp;&nbsp;&nbsp;
                                 <label>Perception:&nbsp;
                             <input type='checkbox' onChange={this.handleChange} value='perception' name='skills' />
-                                </label>
-                                &nbsp;&nbsp;&nbsp;                   
+                            </label>
+                                &nbsp;&nbsp;&nbsp;
                                 <label>Performance:&nbsp;
                             <input type='checkbox' onChange={this.handleChange} value='performance' name='skills' />
-                                </label>
-                                &nbsp;&nbsp;&nbsp;                 
+                            </label>
+                                &nbsp;&nbsp;&nbsp;
                                 <label>Persuasion:&nbsp;
                             <input type='checkbox' onChange={this.handleChange} value='persuasion' name='skills' />
-                                </label>
-                                &nbsp;&nbsp;&nbsp;                   
+                            </label>
+                                &nbsp;&nbsp;&nbsp;
                                 <label>Religion:&nbsp;
                             <input type='checkbox' onChange={this.handleChange} value='religion' name='skills' />
-                                </label>
-                                &nbsp;&nbsp;&nbsp;                     
+                            </label>
+                                &nbsp;&nbsp;&nbsp;
                                 <label>Sleight of Hand:&nbsp;
                             <input type='checkbox' onChange={this.handleChange} value='sleight-of-hand' name='skills' />
-                                </label>
-                                &nbsp;&nbsp;&nbsp;                      
+                            </label>
+                                &nbsp;&nbsp;&nbsp;
                                 <label>Stealth:&nbsp;
                             <input type='checkbox' onChange={this.handleChange} value='stealth' name='skills' />
-                                </label>
-                                &nbsp;&nbsp;&nbsp;                     
+                            </label>
+                                &nbsp;&nbsp;&nbsp;
                                 <label>Survival:&nbsp;
                             <input type='checkbox' onChange={this.handleChange} value='survival' name='skills' />
-                                </label>
-                            </div>
+                            </label>
                         </div>
+                    </div>
                     <div className='flex-container'>
                         <div className="CharPage-form-group-stats">
                             <label>Stats:</label>
@@ -373,10 +373,60 @@ class CharacterSheetPage extends Component {
                                 </label>
                             </div>
                         </div>
-                    
+                    </div>
+                    <div className="CharPage-form-group-money">
+                        <div className=''>
+                            <label>CP:
+                            <input
+                                    placeholder="80"
+                                    className="form-control"
+                                    name="money.CP"
+                                    value={this.state.formData.money.CP}
+                                    onChange={this.handleChange}
+                                />
+                            </label>
+                        </div>
+                        <label>SP:
+                            <input
+                                placeholder="80"
+                                className="form-control"
+                                name="money.SP"
+                                value={this.state.formData.money.SP}
+                                onChange={this.handleChange}
+                            />
+                        </label>
+                        <label>EP:
+                            <input
+                                placeholder="80"
+                                className="form-control"
+                                name="money.EP"
+                                value={this.state.formData.money.EP}
+                                onChange={this.handleChange}
+                            />
+                        </label>
+                        <label>GP:
+                            <input
+                                placeholder="80"
+                                className="form-control"
+                                name="money.GP"
+                                value={this.state.formData.money.GP}
+                                onChange={this.handleChange}
+                            />
+                        </label>
+                        <label>PP:
+                            <input
+                                placeholder="80"
+                                className="form-control"
+                                name="money.PP"
+                                value={this.state.formData.money.PP}
+                                onChange={this.handleChange}
+                            />
+                        </label>
+                    </div>
+                    <div className='flex-container'>
                         <div className="CharPage-form-group-equipment">
                             <label>Equipment:</label>
-                            <input
+                            <textarea
                                 className="form-control"
                                 name="equipment"
                                 value={this.state.formData.equipment}
@@ -384,55 +434,6 @@ class CharacterSheetPage extends Component {
                             />
                         </div>
                     </div>
-                    <div className="CharPage-form-group-money">
-                            <div className=''>
-                                <label>CP:
-                            <input
-                                        placeholder="80"
-                                        className="form-control"
-                                        name="money.CP"
-                                        value={this.state.formData.money.CP}
-                                        onChange={this.handleChange}
-                                    />
-                                </label>
-                            </div>
-                            <label>SP:
-                            <input
-                                    placeholder="80"
-                                    className="form-control"
-                                    name="money.SP"
-                                    value={this.state.formData.money.SP}
-                                    onChange={this.handleChange}
-                                />
-                            </label>
-                            <label>EP:
-                            <input
-                                    placeholder="80"
-                                    className="form-control"
-                                    name="money.EP"
-                                    value={this.state.formData.money.EP}
-                                    onChange={this.handleChange}
-                                />
-                            </label>
-                            <label>GP:
-                            <input
-                                    placeholder="80"
-                                    className="form-control"
-                                    name="money.GP"
-                                    value={this.state.formData.money.GP}
-                                    onChange={this.handleChange}
-                                />
-                            </label>
-                            <label>PP:
-                            <input
-                                    placeholder="80"
-                                    className="form-control"
-                                    name="money.PP"
-                                    value={this.state.formData.money.PP}
-                                    onChange={this.handleChange}
-                                />
-                            </label>
-                        </div>
                     <div className='flex-container'>
                         <div className="CharPage-form-group-backstory">
                             <label>Backstory:</label>
@@ -444,13 +445,16 @@ class CharacterSheetPage extends Component {
                             />
                         </div>
                     </div>
+                    <div className='buttons'>
                     <button
                         type="submit"
                         className="btn btn-primary"
                     >
                         Add Character
                     </button>
+                    &nbsp;&nbsp;&nbsp;
                     <Link to='/characters' className='btn btn-warning'>Cancel</Link>
+                    </div>
                 </form>
             </>
         );
