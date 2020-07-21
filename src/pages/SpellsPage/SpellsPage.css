@@ -47,3 +47,14 @@ div.mb-3.subtitle.card-items.card-subtitle.h6 {
 .back-btn {
     margin-top: 20px;
 }
+
+#spell-submit-btn {
+    background-color: rgba(255, 255, 255, 0.692);
+
+}
+
+#spell-submit-btn:hover {
+    background-color: #1b91AA;
+    color: white;
+
+}

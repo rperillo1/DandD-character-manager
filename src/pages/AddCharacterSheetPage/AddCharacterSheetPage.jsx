@@ -15,7 +15,13 @@ class CharacterSheetPage extends Component {
             speed: '',
             stats: {},
             equipment: '',
-            money: {},
+            money: {
+                CP: '',
+                SP: '',
+                EP: '',
+                GP: '',
+                PP: ''
+            },
             backstory: '',
             profBonus: '',
             alignment: '',
@@ -381,7 +387,8 @@ class CharacterSheetPage extends Component {
                                     placeholder="80"
                                     className="form-control"
                                     name="money.CP"
-                                    value={this.state.formData.money.CP}
+                                    // value={this.state.formData.money.CP}
+                                    defaultValue='0'
                                     onChange={this.handleChange}
                                 />
                             </label>
@@ -391,7 +398,8 @@ class CharacterSheetPage extends Component {
                                 placeholder="80"
                                 className="form-control"
                                 name="money.SP"
-                                value={this.state.formData.money.SP}
+                                // value={this.state.formData.money.SP}
+                                defaultValue='0'
                                 onChange={this.handleChange}
                             />
                         </label>
@@ -400,7 +408,8 @@ class CharacterSheetPage extends Component {
                                 placeholder="80"
                                 className="form-control"
                                 name="money.EP"
-                                value={this.state.formData.money.EP}
+                                // value={this.state.formData.money.EP}
+                                defaultValue='0'
                                 onChange={this.handleChange}
                             />
                         </label>
@@ -409,7 +418,8 @@ class CharacterSheetPage extends Component {
                                 placeholder="80"
                                 className="form-control"
                                 name="money.GP"
-                                value={this.state.formData.money.GP}
+                                // value={this.state.formData.money.GP}
+                                defaultValue='0'
                                 onChange={this.handleChange}
                             />
                         </label>
@@ -418,7 +428,8 @@ class CharacterSheetPage extends Component {
                                 placeholder="80"
                                 className="form-control"
                                 name="money.PP"
-                                value={this.state.formData.money.PP}
+                                // value={this.state.formData.money.PP}
+                                defaultValue='0'
                                 onChange={this.handleChange}
                             />
                         </label>

@@ -16,7 +16,7 @@ class SpellsPage extends Component {
 
     handleChange = e => {
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value.toLowerCase().replace(/ /g,"-")
         })
     }
 
@@ -38,7 +38,7 @@ class SpellsPage extends Component {
                     <Form inline onSubmit={this.handleSubmit}>
                         <FormControl name="spell" type="text" placeholder="Acid Arrow" className="mr-sm-2" onChange={this.handleChange} />
                         <br /> &nbsp;
-                        <Button type="submit" variant="outline-info">Search</Button>
+                        <Button type="submit" id="spell-submit-btn" variant="outline-info">Search</Button>
                     </Form>
                 </div>
                 <div className='flex-container spell-container'>

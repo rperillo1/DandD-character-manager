@@ -12,15 +12,6 @@ export function getAllCharactersAPI() {
         .then(allCharacters => allCharacters.json());
 }
 
-// show
-// export function getSelectedCharacterAPI(characterId) {
-//     return fetch(`${BASE_URL}/${characterId}`, {
-//         headers: {
-//             'Authorization': `Bearer ${tokenService.getToken()}`
-//         }
-//     }).then(selectedCharacter => selectedCharacter.json());
-// }
-
 
 // create
 export function createCharacterAPI(characterToCreate) {
@@ -48,7 +39,6 @@ export function addSpellToCharacter(spell, characterId) {
 }
 
 
-
 export function deleteCharacterAPI(characterIdToDelete) {
     return fetch(`${BASE_URL}/${characterIdToDelete}`, {
         method: 'DELETE',
@@ -69,6 +59,7 @@ export function updateCharacterAPI(characterToUpdate, characterId) {
         body: JSON.stringify(characterToUpdate)
     }).then(updatedCharacter => updatedCharacter.json)
 }
+
 
 export function deleteSpellAPI(characterId, spellId) {
     return fetch(`${BASE_URL}/${characterId}/spells/${spellId}`, {

@@ -63,7 +63,7 @@ class EditCharacterSheetPage extends Component {
             formData: formDataAsUserTypes
         })
 
-        if ('CP SP EP GP'.includes(e.target.name)) {
+        if ('CP SP EP GP PP'.includes(e.target.name)) {
             const money = {
                 ...this.state.formData.money,
                 [e.target.name]: e.target.value
@@ -487,7 +487,7 @@ class EditCharacterSheetPage extends Component {
                             <input
                                 placeholder="80"
                                 className="form-control"
-                                name="money.PP"
+                                name="PP"
                                 value={this.state.formData.money.PP}
                                 onChange={this.handleChange}
                             />
