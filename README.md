@@ -16,7 +16,7 @@
 
 Technologies:
 ------
-Express, Node, Mongoose, MongoDB, React, Heroku, HTML, CSS, Bootstrap
+Express, Node, Mongoose, MongoDB, React, Heroku, HTML, CSS, Bootstrap, D&D 5e Players Handbook API
 
 <br>
 
