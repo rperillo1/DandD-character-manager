@@ -10,7 +10,7 @@ import './SpellsPage.css'
 class SpellsPage extends Component {
     state = {
         character: {},
-        spells: []
+        // spells: []
     }
 
 
@@ -19,7 +19,7 @@ class SpellsPage extends Component {
         const character = await characterService.getOneCharacter(characterId)
         this.setState({
             character,
-            spells: character.spells
+            // spells: character.spells
         })
     }
 
@@ -27,13 +27,13 @@ class SpellsPage extends Component {
         this.getCharacter()
     }
 
-    componentDidUpdate() {
-        console.log(this.state.character.spells.length)
-        console.log(this.state.spells.length)
-        if (this.state.character.spells.length !== this.state.spells.length) {
-            this.getCharacter()
-        }
-    }
+    // componentDidUpdate() {
+    //     console.log(this.state.character.spells.length)
+    //     console.log(this.state.spells.length)
+    //     if (this.state.character.spells.length !== this.state.spells.length) {
+    //         this.getCharacter()
+    //     }
+    // }
 
     handleSubmit = async e => {
         e.preventDefault();
@@ -42,13 +42,14 @@ class SpellsPage extends Component {
         
         this.props.handleAddSpellToCharacter(spellFromAPI, currentChar._id)
         // this.setState({
-        //     character: {
-        //         spells:
-        //         [...this.state.character.spells, spellFromAPI]
-        //     }
+        //     spells: [...this.state.spells, spellFromAPI]
         // })
         this.setState({
-            spells: [...this.state.spells, spellFromAPI]
+            character: {
+                ...this.state.character,
+                spells:
+                [...this.state.character.spells, spellFromAPI]
+            }
         })
     }
 
@@ -58,16 +59,19 @@ class SpellsPage extends Component {
         })
     }
 
-    // removeSpell(spellId) {
-    //     let idx = this.state.character.spells.findIndex(x => x._id === spellId)
-    //     this.state.character.spells.splice(idx, 1)
-    //     this.setState({
-    //         character: {
-    //             spells:
-    //             [...this.state.character.spells, updatedChar]
-    //         }
-    //     })
-    // }
+    removeSpell(spellId) {
+        let idx = this.state.character.spells.findIndex(x => x._id === spellId)
+        const spellsWithoutSpell = [...this.state.character.spells]
+        spellsWithoutSpell.splice(idx, 1)
+
+        console.log(spellsWithoutSpell)
+        this.setState({
+            character: {
+                ...this.state.character,
+                spells: spellsWithoutSpell
+            }
+        })
+    }
 
 
 
@@ -88,10 +92,10 @@ class SpellsPage extends Component {
                             <Card.Body>
                                 <button
                                     className='btn btn-danger delete-btn'
-                                    onClick={() => 
+                                    onClick={() => {
                                         this.props.handleDeleteSpell(this.state.character._id, spell._id)
-                                        // this.removeSpell(spell._id)
-                                    }
+                                        this.removeSpell(spell._id)
+                                    }}
                                 >
                                     X
                                 </button>
@@ -100,8 +104,8 @@ class SpellsPage extends Component {
                                 <Card.Subtitle className="mb-3 subtitle card-items">Range: {spell.range}</Card.Subtitle>
                                 <Card.Subtitle className="mb-3 subtitle card-items">Duration: {spell.duration}</Card.Subtitle>
                                 <Card.Subtitle className="mb-3 subtitle card-items">Components: {spell.components}</Card.Subtitle>
-                                {spell.desc.map(text =>
-                                    <Card.Subtitle className="mb-3 subtitle spell-desc" id="spell-desc">{text}</Card.Subtitle>
+                                {spell.desc.map((text, idx) =>
+                                    <Card.Subtitle className="mb-3 subtitle spell-desc" id="spell-desc" key={idx}>{text}</Card.Subtitle>
                                 )}
                             </Card.Body>
                         </Card>
