@@ -9,7 +9,8 @@ import './SpellsPage.css'
 
 class SpellsPage extends Component {
     state = {
-        character: {}
+        character: {},
+        spells: []
     }
 
 
@@ -17,7 +18,8 @@ class SpellsPage extends Component {
         const characterId = this.props.match.params.id
         const character = await characterService.getOneCharacter(characterId)
         this.setState({
-            character
+            character,
+            spells: character.spells
         })
     }
 
@@ -26,10 +28,28 @@ class SpellsPage extends Component {
     }
 
     componentDidUpdate() {
-        console.log(this.state.character.spells)
-        if (this.state.character !== this.props.character) {
+        console.log(this.state.character.spells.length)
+        console.log(this.state.spells.length)
+        if (this.state.character.spells.length !== this.state.spells.length) {
             this.getCharacter()
         }
+    }
+
+    handleSubmit = async e => {
+        e.preventDefault();
+        const currentChar = {...this.state.character}
+        const spellFromAPI = await spellsAPI.getSpellInfoAPI(this.state.spell);
+        
+        this.props.handleAddSpellToCharacter(spellFromAPI, currentChar._id)
+        // this.setState({
+        //     character: {
+        //         spells:
+        //         [...this.state.character.spells, spellFromAPI]
+        //     }
+        // })
+        this.setState({
+            spells: [...this.state.spells, spellFromAPI]
+        })
     }
 
     handleChange = e => {
@@ -38,12 +58,17 @@ class SpellsPage extends Component {
         })
     }
 
-    handleSubmit = async e => {
-        e.preventDefault();
-        console.log(this.state.spell)
-        const spellFromAPI = await spellsAPI.getSpellInfoAPI(this.state.spell);
-        this.props.handleAddSpellToCharacter(spellFromAPI, this.state.character._id)
-    }
+    // removeSpell(spellId) {
+    //     let idx = this.state.character.spells.findIndex(x => x._id === spellId)
+    //     this.state.character.spells.splice(idx, 1)
+    //     this.setState({
+    //         character: {
+    //             spells:
+    //             [...this.state.character.spells, updatedChar]
+    //         }
+    //     })
+    // }
+
 
 
     render() {
@@ -63,7 +88,10 @@ class SpellsPage extends Component {
                             <Card.Body>
                                 <button
                                     className='btn btn-danger delete-btn'
-                                    onClick={() => this.props.handleDeleteSpell(this.state.character._id, spell._id)}
+                                    onClick={() => 
+                                        this.props.handleDeleteSpell(this.state.character._id, spell._id)
+                                        // this.removeSpell(spell._id)
+                                    }
                                 >
                                     X
                                 </button>
