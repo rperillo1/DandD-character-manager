@@ -2,6 +2,7 @@ const router = require('express').Router();
 const charactersCtrl = require('../controllers/characters');
 
 router.get('/', checkAuth, charactersCtrl.index);
+router.get('/:id', checkAuth, charactersCtrl.getOne);
 
 router.post('/', checkAuth, charactersCtrl.create);
 router.put('/:id/spells', checkAuth, charactersCtrl.addSpell);

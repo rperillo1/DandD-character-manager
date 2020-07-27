@@ -17,7 +17,7 @@ function CharacterSheetShowPage(props) {
 
     return (
         <>
-            <Link to={{ pathname: `/characters/${character._id}/spells`, characterId: `${character._id}`, state: { character } }} className='btn btn-primary spell-btn'>CHARACTERS SPELLS</Link>
+            <Link to={{ pathname: `/characters/${character._id}/spells`, state: { character } }} className='btn btn-primary spell-btn'>CHARACTERS SPELLS</Link>
             {character.name ?
                 <div className='sheet-grid'>
                     <TitleCard character={character} />

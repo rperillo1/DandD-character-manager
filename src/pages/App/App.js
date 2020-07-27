@@ -114,13 +114,13 @@ class App extends Component {
               <HomePage history={history} handleLogout={this.handleLogout} />
             } />
             <Route exact path='/characters' render={({ history }) =>
-              <CharacterSheetIndexPage history={history} />
+              <CharacterSheetIndexPage history={history} characters={this.state.characters}/>
             } />
             <Route exact path='/characters/:id' render={({ location }) =>
               <CharacterSheetShowPage location={location} handleDeleteCharacter={this.handleDeleteCharacter} />
             } />
-            <Route exact path='/characters/:id/spells' render={({ location, history }) =>
-              <SpellsPage location={location} history={history} 
+            <Route exact path='/characters/:id/spells' render={({ location, history, match }) =>
+              <SpellsPage location={location} history={history} match={match} 
               handleAddSpellToCharacter={this.handleAddSpellToCharacter} 
               handleDeleteSpell={this.handleDeleteSpell} 
               getAllCharacters={this.getAllCharacters}

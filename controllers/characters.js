@@ -6,7 +6,8 @@ module.exports = {
     addSpell: addSpellToCharacter,
     delete: deleteCharacter,
     update: updateCharacter,
-    deleteSpell
+    deleteSpell,
+    getOne
 };
 
 // index
@@ -19,6 +20,18 @@ async function index(req, res) {
         res.status(500).json(err);
     }
 }
+
+
+async function getOne(req, res) {
+    try {   
+        const character = await Character.findById(req.params.id);
+        res.status(200).json(character);
+    }
+    catch (err) {
+        res.status(500).json(err);
+    }
+}
+
 
 // create
 async function createCharacter(req, res) {
@@ -78,6 +91,3 @@ async function deleteSpell(req, res) {
         res.status(500).json(err);
     }
 }
-
-
-// Favorite.updateOne( {cn: req.params.name}, { $pullAll: {uid: [req.params.deleteUid] } } )
