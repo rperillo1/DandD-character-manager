@@ -13,10 +13,23 @@ class SpellsPage extends Component {
         character: this.props.location.state.character,
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.location !== prevProps.location) {
+            this.props.getAllCharacters()
+        }
+    }
+
+    // getAllChildTasks = async parentTaskID => {
+    //     const tasks = await tasksService.getAllChildTasks(parentTaskID);
+    //     this.setState({
+    //         tasks
+    //     });
+    // }
+
 
     handleChange = e => {
         this.setState({
-            [e.target.name]: e.target.value.toLowerCase().replace(/ /g,"-")
+            [e.target.name]: e.target.value.toLowerCase().replace(/ /g, "-")
         })
     }
 

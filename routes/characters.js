@@ -11,8 +11,9 @@ router.delete('/:id/spells/:spellId', checkAuth, charactersCtrl.deleteSpell);
 
 
 function checkAuth(req, res, next) {
-    if(req.user) return next();
-    return res.status(501).json({msg: 'Not Authorized'});
+    if (req.user) return next();
+    return res.status(501).json({ msg: 'Not Authorized' });
 }
 
 module.exports = router;
+

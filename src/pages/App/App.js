@@ -51,7 +51,18 @@ class App extends Component {
 
   handleDeleteSpell = async (characterId, spellId) => {
     await characterService.deleteSpellAPI(characterId, spellId)
-    this.props.history.push('/characters')
+    // this.props.history.push('/characters')
+  }
+
+  getAllCharacters = async () => {
+    const characters = await characterService.getAllCharactersAPI();
+    this.setState({
+      characters
+    })
+  }
+
+  async componentDidMount() {
+    this.getAllCharacters();
   }
 
 
@@ -109,13 +120,17 @@ class App extends Component {
               <CharacterSheetShowPage location={location} handleDeleteCharacter={this.handleDeleteCharacter} />
             } />
             <Route exact path='/characters/:id/spells' render={({ location, history }) =>
-              <SpellsPage location={location} history={history} handleAddSpellToCharacter={this.handleAddSpellToCharacter} handleDeleteSpell={this.handleDeleteSpell}/>
+              <SpellsPage location={location} history={history} 
+              handleAddSpellToCharacter={this.handleAddSpellToCharacter} 
+              handleDeleteSpell={this.handleDeleteSpell} 
+              getAllCharacters={this.getAllCharacters}
+              />
             } />
             <Route exact path='/add-character' render={({ history }) =>
               <AddCharacterSheetPage history={history} handleAddCharacter={this.handleAddCharacter} />
             } />
-            <Route exact path='/characters/:id/edit' render={({ location, history}) =>
-              <EditCharacterSheetPage location={location} history={history} handleEditCharacter={this.handleEditCharacter}/>
+            <Route exact path='/characters/:id/edit' render={({ location, history }) =>
+              <EditCharacterSheetPage location={location} history={history} handleEditCharacter={this.handleEditCharacter} />
             } />
           </Switch>
         </main>
