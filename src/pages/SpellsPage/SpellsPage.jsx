@@ -10,16 +10,13 @@ import './SpellsPage.css'
 class SpellsPage extends Component {
     state = {
         character: {},
-        // spells: []
     }
-
 
     getCharacter = async () => {
         const characterId = this.props.match.params.id
         const character = await characterService.getOneCharacter(characterId)
         this.setState({
             character,
-            // spells: character.spells
         })
     }
 
@@ -27,30 +24,23 @@ class SpellsPage extends Component {
         this.getCharacter()
     }
 
-    // componentDidUpdate() {
-    //     console.log(this.state.character.spells.length)
-    //     console.log(this.state.spells.length)
-    //     if (this.state.character.spells.length !== this.state.spells.length) {
-    //         this.getCharacter()
-    //     }
-    // }
-
     handleSubmit = async e => {
         e.preventDefault();
-        const currentChar = {...this.state.character}
+        const currentChar = { ...this.state.character }
         const spellFromAPI = await spellsAPI.getSpellInfoAPI(this.state.spell);
-        
-        this.props.handleAddSpellToCharacter(spellFromAPI, currentChar._id)
-        // this.setState({
-        //     spells: [...this.state.spells, spellFromAPI]
-        // })
-        this.setState({
-            character: {
-                ...this.state.character,
-                spells:
-                [...this.state.character.spells, spellFromAPI]
-            }
-        })
+
+        if (spellFromAPI.error === undefined) {
+            this.props.handleAddSpellToCharacter(spellFromAPI, currentChar._id)
+            this.setState({
+                character: {
+                    ...this.state.character,
+                    spells:
+                        [...this.state.character.spells, spellFromAPI]
+                }
+            })
+        } else {
+            alert('That spell doesnt exist')
+        }
     }
 
     handleChange = e => {
@@ -63,8 +53,6 @@ class SpellsPage extends Component {
         let idx = this.state.character.spells.findIndex(x => x._id === spellId)
         const spellsWithoutSpell = [...this.state.character.spells]
         spellsWithoutSpell.splice(idx, 1)
-
-        console.log(spellsWithoutSpell)
         this.setState({
             character: {
                 ...this.state.character,
@@ -73,8 +61,7 @@ class SpellsPage extends Component {
         })
     }
 
-
-
+    
     render() {
         let char = this.state.character
         return (
