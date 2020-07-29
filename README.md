@@ -26,5 +26,5 @@ Link: [Visit The App!](https://dandd-character-manager.herokuapp.com/)
 <br>
 
 ### Future Features:
-1. adjust the spellPage to store character data for faster rendering
-2. create a page where players can post their character for campaigns to recruit them
+1. Create a page where players can post their character for campaigns to recruit them
+2. Create a page for active campaigns to store all of the character sheets for DM's to reference during sessions
